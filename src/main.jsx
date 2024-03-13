@@ -17,7 +17,7 @@ async function checkAdmin() {
       formData.append("isDelete", false);
       formData.append("adminAccount", true);
       formData.append("status", 'INTERNAL');
-      let newUser = fetch('https://deividcuello.pythonanywhere.com/api/auth/register', {
+      let newUser = fetch('http://deividcuello.pythonanywhere.com/api/auth/register', {
         credentials: "include",
         headers: { "X-CSRFToken": Cookies.get("csrftoken") },
         method: "POST",
@@ -49,7 +49,7 @@ async function checkBookingsDates() {
 
 setInterval(() => {
   checkBookingsDates()
-}, 1800000)
+}, 1000)
 
 
 

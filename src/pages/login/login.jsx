@@ -32,8 +32,9 @@ function Login() {
         fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
             credentials: "include",
             method: "POST",
+            headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             body: formData,
-        }).then((res) => res.ok ? console.log(res) : toast.error(`Hubo un error`, {
+        }).then((res) => res.ok ? console.log(res.json()) : toast.error(`Hubo un error`, {
             position: "top-center"
           }))
         .catch(() => toast.error(`Hubo un error`, {
