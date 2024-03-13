@@ -32,7 +32,6 @@ function Login() {
         fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
             credentials: "include",
             method: "POST",
-            headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             body: formData,
         }).then((res) => res.json())
         .then(jsondata => console.log(jsondata))
