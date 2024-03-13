@@ -34,9 +34,8 @@ function Login() {
             method: "POST",
             headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             body: formData,
-        }).then((res) => res.ok ? console.log(res) : toast.error(`Hubo un error`, {
-            position: "top-center"
-          }))
+        }).then((res) => res.json())
+        .then(jsondata => console.log(jsondata))
         .catch(() => toast.error(`Hubo un error`, {
             position: "top-center"
           }))
