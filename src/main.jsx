@@ -43,14 +43,14 @@ async function checkBookingsDates() {
   const hour = d.getHours();
   res.data.booking.forEach(element => {
     if (element.date > todayDate) {
-      // deleteBooking(element.id)
+      deleteBooking(element.id)
     }
   });
 }
 
 setInterval(() => {
   checkBookingsDates()
-}, 18000)
+}, 3600000)
 
 
 
