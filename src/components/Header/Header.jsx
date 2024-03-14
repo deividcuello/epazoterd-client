@@ -8,7 +8,7 @@ import { checkLogin } from "../../api";
 function Header() {
   const [isMenu, setIsMenu] = useState(false)
   const [userDropDown, setUserDropDown] = useState(false)
-  const [isMd, setIsMd] = useState(false)
+  const [isMd, setIsMd] = useState(true)
   const [userInfo, setUserInfo] = useState('')
 
   useEffect(() => {
