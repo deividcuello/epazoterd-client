@@ -38,6 +38,12 @@ function BookingAdmin() {
 
         getUserInfo()
     }, [])
+
+    async function deleteBookingFunc(id) {
+        await deleteBooking(id)
+        window.location.reload(false)
+    }
+    
     return (
         <section className='container mx-auto'>
             <div className='overflow-x-auto'>
