@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { convertTZ, taskDate, formatDate } from '../../../utils/datesFunctions';
-import { getBooking, checkLogin, getUser } from '../../../api';
+import { getBooking, checkLogin, getUser, deleteBooking } from '../../../api';
 
 function BookingAdmin() {
     const [userInfo, setUserInfo] = useState({})
@@ -43,7 +43,7 @@ function BookingAdmin() {
         await deleteBooking(id)
         window.location.reload(false)
     }
-    
+
     return (
         <section className='container mx-auto'>
             <div className='overflow-x-auto'>
