@@ -35,6 +35,10 @@ function Login() {
             localStorage.setItem("accessToken", res.data.access);
             localStorage.setItem("refreshToken", res.data.refresh);
             window.location.href = '/'
+        } else{
+            toast.error(`Datos incorrecto`, {
+                position: "top-center"
+            })
         }
 
     }
