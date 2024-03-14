@@ -31,15 +31,20 @@ function Login() {
         formData.append("email", email.toLowerCase());
         formData.append("password", password);
         const res = await getToken(formData)
-        if(res.data.access){
-            localStorage.setItem("accessToken", res.data.access);
-            localStorage.setItem("refreshToken", res.data.refresh);
-            window.location.href = '/'
-        } else{
+        
+        try {     
+            if(res.data.access){
+                localStorage.setItem("accessToken", res.data.access);
+                localStorage.setItem("refreshToken", res.data.refresh);
+                window.location.href = '/'
+            } 
+        } catch (error) {
             toast.error(`Datos incorrecto`, {
                 position: "top-center"
             })
         }
+
+        
 
     }
 
