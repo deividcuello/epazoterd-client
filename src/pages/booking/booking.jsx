@@ -205,7 +205,7 @@ function Booking() {
                                 </div>
                                 <div>
                                     <label htmlFor="">Cantidad de personas</label>
-                                    <input type='number' min="1" max="50" onKeyDown={(e) => e.preventDefault()} onChange={(e) => setPeopleNo(e.target.value)} value={peopleNo} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
+                                    <input type='number' min="1" max="50" onChange={(e) => setPeopleNo(e.target.value)} value={peopleNo} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
                                 </div>
                                 <div>
                                     <label htmlFor="">Informacion adicional (opcional)</label>
