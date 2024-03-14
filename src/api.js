@@ -38,7 +38,7 @@ export const sendEmail = (url_parameters) => {
 }
 
 export const getBooking = () => {
-  return axios.get("https://deividcuello.pythonanywhere.com/api/booking", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
+  return axios.get("https://deividcuello.pythonanywhere.com/api/booking/", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
 };
 
 export const deleteBooking = (id) => {
