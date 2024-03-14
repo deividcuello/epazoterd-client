@@ -45,8 +45,8 @@ function App() {
             <Route path="/contacto" element={<Contact />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/registrar" element={<Register />}></Route>
-            <Route path="/perfil" element={<Profile />}></Route>
             <Route path="/reservar" element={<Booking />}></Route>
+            {userInfo.adminAccount && <Route path="/perfil" element={<Profile />}></Route>}
             {userInfo.adminAccount && <Route path="/admin/tablero" element={<Dashboard />}></Route>}
             {userInfo.adminAccount && <Route path="/admin/usuarios" element={<Users />}></Route>}
             {userInfo.adminAccount && <Route path="/admin/reservaciones" element={<BookingAdmin />}></Route>}
