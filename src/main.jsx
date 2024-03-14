@@ -49,7 +49,7 @@ async function checkBookingsDates() {
 
 setInterval(() => {
   checkBookingsDates()
-}, 1000)
+}, 18000)
 
 
 

@@ -13,31 +13,30 @@ function Login() {
 
     useEffect(() => {
         async function userData(){
-          try {
-            const res = await checkLogin()
-            window.location.href = '/'
-          } catch (error) {
-            console.log(error)
+            try {
+              if(localStorage.getItem("accessToken")){
+                  window.location.href = '/'
+              }
+            } catch (error) {
+              console.log(error)
+            }
           }
-        }
-    
-        userData()
+      
+          userData()
       }, [])
-    function submitLogin(e) {
+
+    async function submitLogin(e) {
         e.preventDefault()
         let formData = new FormData();
         formData.append("email", email);
         formData.append("password", password);
 
-        fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
-            credentials: "include",
-            method: "POST",
-            body: formData,
-        }).then((res) => res.json())
-        .then(jsondata => console.log(jsondata))
-        .catch(() => toast.error(`Hubo un error`, {
-            position: "top-center"
-          }))
+        const res = await getToken(formData)
+        if(res.data.access){
+            localStorage.setItem("accessToken", res.data.access);
+            localStorage.setItem("refreshToken", res.data.refresh);
+            window.location.href = '/'
+        }
 
 
     }
