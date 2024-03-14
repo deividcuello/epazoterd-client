@@ -108,6 +108,17 @@ function Booking() {
         }
 
         if ((isUserBooking.length <= 10) && isSubmit) {
+            try {
+                if(userInfo.id == nul){
+                    : toast.error("Hubo un error", {
+                        position: "top-center",
+                    })
+                }
+            } catch (error) {
+                : toast.error("Hubo un error", {
+                    position: "top-center",
+                })
+            }
             const getCode = uniqueId()
             setBookingCode(getCode)
             let formData = new FormData();
