@@ -40,7 +40,23 @@ function BookingAdmin() {
     }, [])
     return (
         <section className='container mx-auto'>
-        
+            <div className='overflow-x-auto'>
+                <table className='mt-5 w-full'>
+                    <tr>
+                        <th>Usuario ID</th>
+                        <th>Fecha</th>
+                        <th>Telefono</th>
+                        <th>Hora de llegada</th>
+                        <th>Hora de salida</th>
+                        <th>Codigo de la reservacion</th>
+                        <th>Informacion adicional</th>
+                        <th>Acciones</th>
+                    </tr>
+                    {bookings.map((booking, index) => (
+                        <div>HOLA</div>
+                    ))}
+                </table>
+            </div>
         </section>
     )
 }
