@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { checkLogin, sendEmail } from '../../api';
+import { checkLogin, sendEmail, getToken } from '../../api';
 
 
 function Register() {
@@ -42,21 +42,36 @@ function Register() {
           }))
     }
 
-    function confirmSubmitUser(){
+    async function confirmSubmitUser(){
         let formData = new FormData();
         setActivationCode(Math.random())
         formData.append("email", email.toLowerCase());
         formData.append("password", password);
-        fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
-            credentials: "include",
-            method: "POST",
-            body: formData,
-        }).then((res) => res.ok ? window.location.href = '/' : toast.error(`Hubo un error`, {
-            position: "top-center"
-          }))
-        .catch(() => toast.error(`Hubo un error`, {
-            position: "top-center"
-          }))
+        // fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
+        //     credentials: "include",
+        //     method: "POST",
+        //     body: formData,
+        // }).then((res) => res.ok ? window.location.href = '/' : toast.error(`Hubo un error`, {
+        //     position: "top-center"
+        //   }))
+        // .catch(() => toast.error(`Hubo un error`, {
+        //     position: "top-center"
+        //   }))
+
+        const res = await getToken(formData)
+        
+        try {     
+            if(res.data.access){
+                localStorage.setItem("accessToken", res.data.access);
+                localStorage.setItem("refreshToken", res.data.refresh);
+                window.location.href = '/'
+            } 
+        } catch (error) {
+            toast.error(`Datos incorrecto`, {
+                position: "top-center"
+            })
+        }
+
     }
 
     async function submitUser(e) {
