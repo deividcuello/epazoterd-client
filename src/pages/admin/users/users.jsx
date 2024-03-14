@@ -145,7 +145,7 @@ function Users() {
 
   async function deleteUserFunc(id){
     const res = await getUser(id)
-    if(!res.data.user.isDelete){
+    if(!res.data.isDelete){
       return toast.success(`Esta cuenta no puede ser eliminada`, {
         position: "top-center"
     })
