@@ -42,7 +42,7 @@ function Booking() {
 
                 const res1 = await getBooking()
                 const data = res1.data.booking
-                const filteredData = data.filter((item) => item.user == res.data.user.id)
+                const filteredData = data.filter((item) => item.user.id == res.data.user.id)
                 setBookings(filteredData)
             } catch (error) {
                 console.log('')
@@ -67,6 +67,8 @@ function Booking() {
             position: "top-center",
         })
     }
+
+    console.log('holaaa', userInfo)
 
     async function submitBooking(e) {
         e.preventDefault()
@@ -105,7 +107,6 @@ function Booking() {
             }
         }
 
-
         if ((isUserBooking.length <= 10) && isSubmit) {
             const getCode = uniqueId()
             setBookingCode(getCode)
@@ -114,12 +115,12 @@ function Booking() {
             formData.append("date", date);
             formData.append("time", time);
             formData.append("time2", time2);
-            formData.append('email', userInfo.email);
             formData.append('people_no', peopleNo);
             formData.append('additional_info', additionalInfo);
             formData.append('booking_code', getCode);
+            formData.append('user_pk', userInfo.id)
 
-            fetch("https://deividcuello.pythonanywhere.com/api/booking/", {
+            fetch("http://localhost:8000/api/booking/", {
                 credentials: "include",
                 headers: { "X-CSRFToken": Cookies.get("csrftoken") },
                 method: "POST",
@@ -139,7 +140,7 @@ function Booking() {
             if (isUserBooking.length > 0) {
                 return toast.error("No puedes reservar mas de una vez en el mismo horario", { position: "top-center" })
             }
-            toast.error("No hay mesas disponibles en esta fecha y hora", { position: "top-center" })
+            toast.error("No puedes reservar mas de 10 veces", { position: "top-center" })
         }
     }
 
@@ -178,7 +179,7 @@ function Booking() {
                                     <select onChange={(e) => setTime(e.target.value)} value={time} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
                                         <option value='' selected></option>
                                         {arrayRange(todayDate == date ? new Date().getHours() : 0, 23, 1).map(element => (
-                                            <option value={`${element}`}>{todayDate == date ? (element) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
+                                            <option value={`${element}`}>{todayDate == date ? (element - 12) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -187,7 +188,7 @@ function Booking() {
                                     <select onChange={(e) => setTime2(e.target.value)} value={time2} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
                                         <option value='' selected></option>
                                         {arrayRange(Number(time) + 1, 23, 1).map(element => (
-                                            <option value={`${element}`}>{todayDate == date ? (element) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
+                                            <option value={`${element}`}>{todayDate == date ? (element - 12) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
                                         ))}
                                     </select>
                                 </div>

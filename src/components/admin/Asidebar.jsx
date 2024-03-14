@@ -7,7 +7,7 @@ function Asidebar() {
   const [isMenu, setIsMenu] = useState(true)
 
   function submitLogout() {
-    return fetch(`https://deividcuello.pythonanywhere.com/api/auth/logout`, {
+    return fetch(`http://localhost:8000/api/auth/logout`, {
       credentials: "include",
       method: "POST",
       body: "",
@@ -15,7 +15,7 @@ function Asidebar() {
   }
 
   return (
-    <aside className='h-screen fixed z-50 md:sticky top-0 w-48'>
+    <aside className={`h-screen fixed z-50 md:sticky top-0 ${isMenu ?'w-48' : 'w-0'}`}>
     {!isMenu ? <button onClick={() => setIsMenu(true)} className='container mx-auto z-[99] bg-customBlack inline-block w-fit mt-5 absolute rounded-full aspect-square'><IoMdMenu size={'2rem'}/></button> :
     <button onClick={() => setIsMenu(false)} className='container mx-auto z-[99] bg-customBlack inline-block w-fit mt-5 absolute rounded-full aspect-square'><IoMdClose size={'2rem'}/></button>
     }
