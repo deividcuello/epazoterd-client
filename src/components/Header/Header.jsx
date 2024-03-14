@@ -11,6 +11,15 @@ function Header() {
   const [isMd, setIsMd] = useState(true)
   const [userInfo, setUserInfo] = useState('')
 
+
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsMd(true)
+    } else {
+      setIsMd(false)
+    }
+  }
+
   useEffect(() => {
     async function userData() {
       try {
@@ -21,16 +30,10 @@ function Header() {
       }
     }
 
+    handleResize()
     userData()
   }, [])
 
-  const handleResize = () => {
-    if (window.innerWidth < 768) {
-      setIsMd(true)
-    } else {
-      setIsMd(false)
-    }
-  }
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
