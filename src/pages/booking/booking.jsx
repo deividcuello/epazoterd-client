@@ -109,7 +109,7 @@ function Booking() {
 
         if ((isUserBooking.length <= 10) && isSubmit) {
             try {
-                if(userInfo.id == nul){
+                if(userInfo.id == null){
                     return toast.error("Hubo un error", {
                         position: "top-center",
                     })
