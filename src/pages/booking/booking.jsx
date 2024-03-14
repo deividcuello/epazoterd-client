@@ -120,7 +120,7 @@ function Booking() {
             formData.append('booking_code', getCode);
             formData.append('user_pk', userInfo.id)
 
-            fetch("http://localhost:8000/api/booking/", {
+            fetch("https://deividcuello.pythonanywhere.com/api/booking/", {
                 credentials: "include",
                 headers: { "X-CSRFToken": Cookies.get("csrftoken") },
                 method: "POST",
