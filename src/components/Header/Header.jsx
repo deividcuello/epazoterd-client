@@ -37,11 +37,9 @@ function Header() {
   })
 
   function submitLogout() {
-    return fetch(`https://deividcuello.pythonanywhere.com/api/auth/logout`, {
-      credentials: "include",
-      method: "POST",
-      body: "",
-    }).then(res => window.location.reload(false));
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    window.location.reload(false)
   }
 
   return (

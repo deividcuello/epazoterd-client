@@ -28,7 +28,7 @@ function Login() {
     async function submitLogin(e) {
         e.preventDefault()
         let formData = new FormData();
-        formData.append("email", email);
+        formData.append("email", email.toLowerCase());
         formData.append("password", password);
 
         const res = await getToken(formData)
@@ -37,7 +37,6 @@ function Login() {
             localStorage.setItem("refreshToken", res.data.refresh);
             window.location.href = '/'
         }
-
 
     }
 

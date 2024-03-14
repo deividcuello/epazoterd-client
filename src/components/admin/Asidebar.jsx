@@ -7,11 +7,9 @@ function Asidebar() {
   const [isMenu, setIsMenu] = useState(true)
 
   function submitLogout() {
-    return fetch(`http://localhost:8000/api/auth/logout`, {
-      credentials: "include",
-      method: "POST",
-      body: "",
-    }).then(res => window.location.href = '/');
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    window.location.reload(false)
   }
 
   return (
