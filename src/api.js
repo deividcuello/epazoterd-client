@@ -25,7 +25,7 @@ export const getUser = (id) => {
 export const deleteUser = (id) => {
   return fetch(`https://deividcuello.pythonanywhere.com/api/auth/users/${id}/`, {
       credentials: 'include',
-      headers: {"X-CSRFToken": Cookies.get("csrftoken")},
+      headers: {"X-CSRFToken": Cookies.get("csrftoken"), "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`},
       method: "DELETE",
     }).then(res => window.location.reload(false))
 }
@@ -38,13 +38,13 @@ export const sendEmail = (url_parameters) => {
 }
 
 export const getBooking = () => {
-  return axios.get("https://deividcuello.pythonanywhere.com/api/booking");
+  return axios.get("https://deividcuello.pythonanywhere.com/api/booking", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
 };
 
 export const deleteBooking = (id) => {
   return fetch(`https://deividcuello.pythonanywhere.com/api/booking/${id}/`, {
       credentials: 'include',
-      headers: {"X-CSRFToken": Cookies.get("csrftoken")},
+      headers: {"X-CSRFToken": Cookies.get("csrftoken"), "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`},
       method: "DELETE",
     })
 }
