@@ -7,7 +7,7 @@ axios.defaults.withCredentials = true;
 
 
 export const checkLogin = () => {
-  return axios.get("http://localhost:8000/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
+  return axios.get("https://localhost:8000/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
 };
 
 export const getToken = (user) => {
