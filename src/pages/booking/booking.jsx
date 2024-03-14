@@ -157,68 +157,7 @@ function Booking() {
     }
 
     return (
-        <section className='container mx-auto mt-5'>
-            {userInfo.username ?
-                <div>
-                    <div className='flex flex-col md:flex-row items-start justify-start gap-5'>
-                        <div className='bg-customBlack p-5 rounded-xl max-w-[30rem]'>
-                            <h2>Reservar local:</h2>
-                            <form onSubmit={(e) => submitBooking(e)} className='mt-4 flex flex-col gap-5 items-start justify-start [&>*]:w-full'>
-                                <div>
-                                    <label htmlFor="">Numero de telefono</label>
-                                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e) => setPhone(e.target.value)} value={phone} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
-                                    <span className='text-xs text-secondaryColor'>Formato solo numeros: XXX-XXX-XXXX</span>
-                                </div>
-                                <div>
-                                    <label htmlFor="">Fecha</label>
-                                    <input type='date' onChange={(e) => setDate(e.target.value)} value={date} min={todayDate} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
-                                </div>
-                                <div>
-                                    <label htmlFor="">Hora de llegada</label>
-                                    {/* <input type='time' onChange={(e) => setTime(e.target.value)} value={time} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required /> */}
-                                    <select onChange={(e) => setTime(e.target.value)} value={time} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
-                                        <option value='' selected></option>
-                                        {arrayRange(todayDate == date ? new Date().getHours() : 0, 23, 1).map(element => (
-                                            <option value={`${element}`}>{todayDate == date ? (element - 12) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label htmlFor="">Hora de salida</label>
-                                    <select onChange={(e) => setTime2(e.target.value)} value={time2} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
-                                        <option value='' selected></option>
-                                        {arrayRange(Number(time) + 1, 23, 1).map(element => (
-                                            <option value={`${element}`}>{todayDate == date ? (element - 12) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label htmlFor="">Cantidad de personas</label>
-                                    <input type='number' min="1" max="50" onKeyDown={(e) => e.preventDefault()} onChange={(e) => setPeopleNo(e.target.value)} value={peopleNo} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
-                                </div>
-                                <div>
-                                    <label htmlFor="">Informacion adicional (opcional)</label>
-                                    <textarea name="" id="" onChange={(e) => setAdditionalInfoFunc(e)} value={additionalInfo} className='bg-blackBodyBg p-1 rounded-xl resize-none w-full h-[10rem]'></textarea>
-                                    <span className='text-sm text-secondaryColor font-semibold'>{additionalInfo.length}/255</span>
-                                </div>
-                                <input type="submit" value='Reservar' className='bg-mainColor text-blackBodyBg p-2 rounded-xl font-semibold cursor-pointer' />
-                                {bookingCode && <h3>Tu codigo es de reservacion es: {bookingCode}</h3>}
-                            </form>
-                        </div>
-                        <div>
-                            <h3>Si tienes reservaciones, puedes visualizarlas deslizando hacia abajo ⬇️</h3>
-                        </div>
-                    </div>
-  
-                </div>
-                :
-                <div className='bg-customBlack p-5 rounded-xl w-fit mx-auto flex items-center justify-center flex-col gap-2'>
-                    <h1>Inicia sesion para reservar:</h1>
-                    <Link to='/login' className='mx-auto text-center'><button className='px-2 py-1 bg-mainColor font-semibold text-blackBodyBg rounded-xl'>Iniciar sesion</button></Link>
-                </div>
-            }
-            <ToastContainer />
-        </section>
+        <section>holaa</section>
     )
 }
 
