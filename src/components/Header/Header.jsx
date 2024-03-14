@@ -74,7 +74,7 @@ function Header() {
 
           }
         </div>
-        {(isMenu || isMd) && <nav className="md:mt-2 py-5 md:py-0">
+        {(isMenu || !!isMd) && <nav className="md:mt-2 py-5 md:py-0">
           <ul className="flex flex-col md:flex-row md:items-center">
             <li>
               <NavLink
