@@ -54,7 +54,7 @@ function BookingAdmin() {
                     </tr>
                     {bookings.map((booking, index) => (
                         <tr key={index}>
-                        <td className='min-w-[3rem] overflow-x-auto text-nowrap'>{booking.user}</td>
+                        <td className='min-w-[3rem] overflow-x-auto text-nowrap'>{booking.user.id}</td>
                             <td className='min-w-[8rem] overflow-x-auto text-nowrap'>{booking.date}</td>
                             <td className='min-w-[10rem] overflow-x-auto text-nowrap'>{booking.phone}</td>
                             <td className='min-w-[5rem] overflow-x-auto text-nowrap'>
