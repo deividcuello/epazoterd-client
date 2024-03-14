@@ -209,51 +209,7 @@ function Booking() {
                             <h3>Si tienes reservaciones, puedes visualizarlas deslizando hacia abajo ⬇️</h3>
                         </div>
                     </div>
-                    <div className='bg-customBlack rounded-xl p-5 mt-5 overflow-x-auto'>
-                        <h2>Tus reservaciones</h2>
-                        {bookings.length > 0 ? <table className='mt-5 w-full'>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Hora de llegada</th>
-                                <th>Hora de salida</th>
-                                <th>Codigo de la reservacion</th>
-                                <th>Informacion adicional</th>
-                                <th>Acciones</th>
-                            </tr>
-                            {bookings.map((booking, index) => (
-                                <tr key={index}>
-                                    <td className='max-w-[6rem] overflow-x-auto text-nowrap'>{booking.date}</td>
-                                    <td className='max-w-[5rem] overflow-x-auto text-nowrap'>
-                                        <span className='p-[0.5rem]'>
-                                            {Number(booking.time) <= 12 ? booking.time : booking.time - 12}:00 {Number(booking.time) <= 12 ? 'A.M' : 'P.M'}
-                                        </span>
-                                    </td>
-
-                                    <td className='max-w-[5rem] overflow-x-auto'>
-                                        <span className='p-[0.5rem] text-nowrap'>
-                                            {Number(booking.time2) <= 12 ? booking.time2 : booking.time2 - 12}:00 {Number(booking.time2) <= 12 ? 'A.M' : 'P.M'}
-                                        </span>
-                                    </td>
-                                    <td className='max-w-[10rem] overflow-x-auto'>
-                                        <span className='p-[0.5rem] text-nowrap'>
-                                            {booking.booking_code}
-                                        </span>
-                                    </td>
-                                    <td className='max-w-[10rem] overflow-x-auto'>
-                                        <span className='p-[0.5rem] text-nowrap'>
-                                            {booking.additional_info ? booking.additional_info : 'N/A'}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div className='flex gap-3 items-center justify-between'>
-                                            <button onClick={() => deleteBookingFunc(booking.id)} className='bg-red-500 p-1 rounded-xl text-blackBodyBg font-semibold'>Eliminar</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </table> :
-                            <h1 className='hidden md:block text-center mt-5'>No tienes reservaciones activas</h1>}
-                    </div>
+  
                 </div>
                 :
                 <div className='bg-customBlack p-5 rounded-xl w-fit mx-auto flex items-center justify-center flex-col gap-2'>

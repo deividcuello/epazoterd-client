@@ -143,6 +143,16 @@ function Users() {
     })
   }
 
+  async function deleteUserFunc(id){
+    const res = await getUser(id)
+    if(!res.data.user.isDelete){
+      return toast.success(`Esta cuenta no puede ser eliminada`, {
+        position: "top-center"
+    })
+    }
+    deleteUser(id)
+  }
+
   return (
     <section className=''>
       <div className='container mx-auto'>
@@ -182,7 +192,7 @@ function Users() {
                 <td>
                   <div className='flex gap-3 items-center justify-between'>
                     <button onClick={() => editUser(user.id)} className='bg-green-500 p-1 rounded-xl text-blackBodyBg font-semibold'>Editar</button>
-                    <button onClick={() => deleteUser(user.id)} className='bg-red-500 p-1 rounded-xl text-blackBodyBg font-semibold'>Eliminar</button>
+                    <button onClick={() => deleteUserFunc(user.id)} className='bg-red-500 p-1 rounded-xl text-blackBodyBg font-semibold'>Eliminar</button>
                   </div>
                 </td>
               </tr>
