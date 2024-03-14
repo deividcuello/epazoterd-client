@@ -160,7 +160,7 @@ function Users() {
           <button onClick={() => setIsUserModal(true)} className='bg-blue-500 px-2 py-1 font-semibold text-blackBodyBg rounded-xl mt-1'>Crear interno</button>
         </div>
         <h2 className='mt-5'>Usuarios</h2>
-        <div>
+        <div className='overflow-x-auto'>
           <table className='mt-5'>
             <tr>
               <th>ID</th>
