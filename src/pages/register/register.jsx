@@ -28,7 +28,7 @@ function Register() {
     function submitLogin(e) {
         e.preventDefault()
         let formData = new FormData();
-        formData.append("email", email);
+        formData.append("email", email.toLowerCase());
         formData.append("password", password);
         fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
             credentials: "include",
@@ -45,7 +45,7 @@ function Register() {
     function confirmSubmitUser(){
         let formData = new FormData();
         setActivationCode(Math.random())
-        formData.append("email", email);
+        formData.append("email", email.toLowerCase());
         formData.append("password", password);
         fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
             credentials: "include",
@@ -64,7 +64,7 @@ function Register() {
         if (username && email && password.length >= 8 && password == confirmPassword && code == activationCode) {
             try {
                 let formData = new FormData();
-                formData.append("email", email);
+                formData.append("email", email.toLowerCase());
                 formData.append("username", username);
                 formData.append("password", password);
                 formData.append("isDelete", true);

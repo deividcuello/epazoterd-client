@@ -30,7 +30,6 @@ function Login() {
         let formData = new FormData();
         formData.append("email", email.toLowerCase());
         formData.append("password", password);
-
         const res = await getToken(formData)
         if(res.data.access){
             localStorage.setItem("accessToken", res.data.access);

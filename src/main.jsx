@@ -5,13 +5,14 @@ import './index.css'
 import Cookies from 'js-cookie'
 import { getUsers, getBooking, deleteBooking } from './api.js'
 import {convertTZ, taskDate, formatDate} from './utils/datesFunctions';
+import interceptor from './interceptor.js'
 
 async function checkAdmin() {
   try {
     const res = await getUsers()
     if (res.data.count == 0) {
       let formData = new FormData();
-      formData.append("email", 'Info.epazote@gmail.com');
+      formData.append("email", 'info.epazote@gmail.com');
       formData.append("username", 'epazote');
       formData.append("password", 'adminadmin');
       formData.append("isDelete", false);

@@ -72,7 +72,7 @@ function Profile() {
     async function updateEmail(e) {
         e.preventDefault();
         let formData = new FormData();
-        formData.append("email", email);
+        formData.append("email", email.toLowerCase());
         formData.append("update_email", true);
         if (email && code == activationCode) {
           let editUser = fetch(

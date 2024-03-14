@@ -48,7 +48,7 @@ function Users() {
     if ((username && email && password.length >= 8 && password == confirmPassword && code == ActivationCode) || (username && email && (password.length >= 8 || password.length == 0) && password == confirmPassword && action.edit)) {
       try {
         let formData = new FormData();
-        formData.append("email", email);
+        formData.append("email", email.toLowerCase());
         formData.append("username", username);
         formData.append("password", password);
         if (action.create) {
