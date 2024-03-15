@@ -1,10 +1,11 @@
 import React from 'react'
-import { getUsers, getBooking } from '../../../api'
+import { getUsers, getBooking, getPartners } from '../../../api'
 import { useEffect, useState } from 'react'
 
 function Dashboard() {
     const [usersCount, setUsersCount] = useState([])
     const [bookingsCount, setBookingsCount] = useState([])
+    const [partnersCount, setPartnersCount] = useState([])
 
     useEffect(() => {
         async function getUsersCount(){
@@ -16,9 +17,15 @@ function Dashboard() {
             const res = await getBooking()
             setBookingsCount(res.data.count)
         }
+        
+        async function getPartnersCount(){
+            const res = await getPartners()
+            setPartnersCount(res.data.count)
+        }
 
         getBookingsCount()
         getUsersCount()
+        getPartnersCount()
     }, [])
   return (
     <section className='container mx-auto mt-5'>
@@ -30,6 +37,10 @@ function Dashboard() {
             <div className='bg-blackBodyBg w-[15rem] h-[8rem] p-5 flex flex-col justify-between rounded-2xl'>
                 <span className='text-6xl'>{bookingsCount}</span>
                 <span className='text-end'>Reservaciones</span>
+            </div>
+            <div className='bg-blackBodyBg w-[15rem] h-[8rem] p-5 flex flex-col justify-between rounded-2xl'>
+                <span className='text-6xl'>{partnersCount}</span>
+                <span className='text-end'>Socios</span>
             </div>
         </div>
     </section>

@@ -48,14 +48,14 @@ function Users() {
     if ((username && email && password.length >= 8 && password == confirmPassword && code == ActivationCode) || (username && email && (password.length >= 8 || password.length == 0) && password == confirmPassword && action.edit)) {
       try {
         let formData = new FormData();
-        formData.append("email", email.toLowerCase());
-        formData.append("username", username);
+        formData.append("email", email.toLowerCase().trim());
+        formData.append("username", username.toLowerCase().trim());
         formData.append("password", password);
         if (action.create) {
           formData.append("isDelete", true);
           formData.append("adminAccount", true);
           formData.append("status", 'INTERNAL');
-          let newUser = fetch('https://deividcuello.pythonanywhere.com/api/auth/register', {
+          let newUser = fetch('http://localhost:8000/api/auth/register', {
             credentials: "include",
             headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             method: "POST",
@@ -77,7 +77,7 @@ function Users() {
             }
           }
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${action.id}/`,
+            `http://localhost:8000/api/auth/users/${action.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -143,16 +143,6 @@ function Users() {
     })
   }
 
-  async function deleteUserFunc(id){
-    const res = await getUser(id)
-    if(!res.data.isDelete){
-      return toast.success(`Esta cuenta no puede ser eliminada`, {
-        position: "top-center"
-    })
-    }
-    deleteUser(id)
-  }
-
   return (
     <section className=''>
       <div className='container mx-auto'>
@@ -160,7 +150,7 @@ function Users() {
           <button onClick={() => setIsUserModal(true)} className='bg-blue-500 px-2 py-1 font-semibold text-blackBodyBg rounded-xl mt-1'>Crear interno</button>
         </div>
         <h2 className='mt-5'>Usuarios</h2>
-        <div className='overflow-x-auto'>
+        <div>
           <table className='mt-5'>
             <tr>
               <th>ID</th>
@@ -192,7 +182,7 @@ function Users() {
                 <td>
                   <div className='flex gap-3 items-center justify-between'>
                     <button onClick={() => editUser(user.id)} className='bg-green-500 p-1 rounded-xl text-blackBodyBg font-semibold'>Editar</button>
-                    <button onClick={() => deleteUserFunc(user.id)} className='bg-red-500 p-1 rounded-xl text-blackBodyBg font-semibold'>Eliminar</button>
+                    <button onClick={() => deleteUser(user.id)} className='bg-red-500 p-1 rounded-xl text-blackBodyBg font-semibold'>Eliminar</button>
                   </div>
                 </td>
               </tr>

@@ -48,3 +48,15 @@ export const deleteBooking = (id) => {
       method: "DELETE",
     })
 }
+
+export const getPartners = () => {
+  return axios.get("https://deividcuello.pythonanywhere.com/api/partner/");
+};
+
+export const deletePartner = (id) => {
+  return fetch(`https://deividcuello.pythonanywhere.com/api/partner/${id}/`, {
+      credentials: 'include',
+      headers: {"X-CSRFToken": Cookies.get("csrftoken")},
+      method: "DELETE",
+    }).then(res => window.location.reload(false))
+}

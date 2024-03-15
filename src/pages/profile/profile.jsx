@@ -33,11 +33,11 @@ function Profile() {
         e.preventDefault();
     
         let formData = new FormData();
-        formData.append("username", username);
+        formData.append("username", username.toLowerCase().trim());
         formData.append("update_username", true);
         if (username) {
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
+            `http://localhost:8000/api/auth/users/${userInfo.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -72,11 +72,11 @@ function Profile() {
     async function updateEmail(e) {
         e.preventDefault();
         let formData = new FormData();
-        formData.append("email", email.toLowerCase());
+        formData.append("email", email.toLowerCase().trim());
         formData.append("update_email", true);
         if (email && code == activationCode) {
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
+            `http://localhost:8000/api/auth/users/${userInfo.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -110,7 +110,7 @@ function Profile() {
         formData.append("update_password", true);
         if (password.length >= 8 && password == confirmPassword) {
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
+            `http://localhost:8000/api/auth/users/${userInfo.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
