@@ -13,38 +13,38 @@ function Login() {
 
     useEffect(() => {
         async function userData(){
-            try {
-              if(localStorage.getItem("accessToken")){
-                  window.location.href = '/'
-              }
-            } catch (error) {
-              console.log(error)
+          try {
+            if(localStorage.getItem("accessToken")){
+                window.location.href = '/'
             }
+          } catch (error) {
+            console.log(error)
           }
-      
-          userData()
+        }
+    
+        userData()
       }, [])
-
     async function submitLogin(e) {
         e.preventDefault()
         let formData = new FormData();
-        formData.append("email", email.toLowerCase());
+        formData.append("email", email);
         formData.append("password", password);
         const res = await getToken(formData)
-        
-        try {     
-            if(res.data.access){
-                localStorage.setItem("accessToken", res.data.access);
-                localStorage.setItem("refreshToken", res.data.refresh);
-                window.location.href = '/'
-            } 
-        } catch (error) {
-            toast.error(`Datos incorrecto`, {
-                position: "top-center"
-            })
+        if(res.data.access){
+            localStorage.setItem("accessToken", res.data.access);
+            localStorage.setItem("refreshToken", res.data.refresh);
+            window.location.href = '/'
         }
-
-        
+        // fetch('http://localhost:8000/api/auth/login', {
+        //     credentials: "include",
+        //     method: "POST",
+        //     body: formData,
+        // }).then((res) => res.ok ? window.location.reload(false) : toast.error(`Hubo un error`, {
+        //     position: "top-center"
+        //   }))
+        // .catch(() => toast.error(`Hubo un error`, {
+        //     position: "top-center"
+        //   }))
 
     }
 
