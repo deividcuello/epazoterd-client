@@ -7,7 +7,7 @@ axios.defaults.withCredentials = true;
 
 
 export const checkLogin = () => {
-  return fetch('https://deividcuello.pythonanywhere.com/api/auth/users').then((response) => {
+  return fetch('https://deividcuello.pythonanywhere.com/api/auth/user').then((response) => {
       if (response.ok) {
         return response;
       }
