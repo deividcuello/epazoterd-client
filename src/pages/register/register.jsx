@@ -65,7 +65,7 @@ function Register() {
             try {
                 let formData = new FormData();
                 formData.append("email", email.toLowerCase().trim());
-                formData.append("username", username.toLowerCase().trim());
+                formData.append("username", username.toLowerCase().replace(" ", ""));
                 formData.append("password", password);
                 formData.append("isDelete", true);
                 formData.append("adminAccount", false);

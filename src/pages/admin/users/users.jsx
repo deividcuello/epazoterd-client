@@ -49,7 +49,7 @@ function Users() {
       try {
         let formData = new FormData();
         formData.append("email", email.toLowerCase().trim());
-        formData.append("username", username.toLowerCase().trim());
+        formData.append("username", username.toLowerCase().replace(" ", ""));
         formData.append("password", password);
         if (action.create) {
           formData.append("isDelete", true);

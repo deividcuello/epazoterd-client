@@ -33,7 +33,7 @@ function Profile() {
         e.preventDefault();
     
         let formData = new FormData();
-        formData.append("username", username.toLowerCase().trim());
+        formData.append("username", username.toLowerCase().replace(" ", ""));
         formData.append("update_username", true);
         if (username) {
           let editUser = fetch(
