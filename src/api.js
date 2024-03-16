@@ -19,7 +19,12 @@ export const getUsers = () => {
 };
 
 export const getUser = (id) => {
-  return axios.get(`https://deividcuello.pythonanywhere.com/api/auth/users/${id}`);
+  try{
+    return axios.get(`https://deividcuello.pythonanywhere.com/api/auth/users/${id}`);
+  }
+  catch(error){
+    ''
+  }
 };
 
 export const deleteUser = (id) => {
