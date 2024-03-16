@@ -60,7 +60,7 @@ function RecoverAccount() {
       formData.append("password", password);
       formData.append("recover_password", true);
       if(password.length >= 8 && password == confirmPassword && codeInput == activationCode){
-          let editUser = fetch(`http://localhost:8000/api/auth/users/${id}/`, {
+          let editUser = fetch(`https://deividcuello.pythonanywhere.com/api/auth/users/${id}/`, {
             credentials: "include",
             headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             method: "PUT",
