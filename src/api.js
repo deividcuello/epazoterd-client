@@ -7,7 +7,11 @@ axios.defaults.withCredentials = true;
 
 
 export const checkLogin = () => {
-  return axios.get("https://deividcuello.pythonanywhere.com/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
+  try {
+    return axios.get("https://deividcuello.pythonanywhere.com/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
+  } catch (error) {
+    console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeff')
+  }
 };
 
 export const getToken = (user) => {
