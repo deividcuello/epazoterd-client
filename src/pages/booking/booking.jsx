@@ -104,6 +104,7 @@ function Booking() {
 
             }
         }
+        
 
         if ((isUserBooking.length <= 10) && isSubmit) {
             try {
