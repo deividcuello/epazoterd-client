@@ -136,7 +136,7 @@ function Header() {
             </li>
             <li>
               <div className="inline-block md:hidden">
-                {!userInfo.username ? <Link to='login' className="inline-block md:hidden bg-blue-500 text-blackBodyBg px-2 py-1 font-semibold rounded-xl">Iniciar sesion</Link> :
+                {!userInfo.username ? <Link to='login' className="inline-block md:hidden bg-blue-500 text-blackBodyBg px-2 py-1 font-semibold rounded-xl">Iniciar sesión</Link> :
                   <div className="relative inline-block md:hidden">
                     <button onClick={() => setUserDropDown(!userDropDown)} className="flex items-center justify-center gap-2">Hola, {userInfo.username} {!userDropDown ? <FaChevronDown /> : <FaChevronUp />}</button>
                   </div>}

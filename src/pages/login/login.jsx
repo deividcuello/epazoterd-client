@@ -56,7 +56,7 @@ function Login() {
                         <div>
                             <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
                         </div>
-                        <input type='submit' value='Iniciar  sesión' className='bg-yellow w-full text-customBlack p-2 font-bold rounded-xl cursor-pointer' />
+                        <input type='submit' value='Iniciar sesión' className='bg-yellow w-full text-customBlack p-2 font-bold rounded-xl cursor-pointer' />
                         <Link to='/recuperar-cuenta' className='text-red-500 text-sm mt-3 text-end block'>¿Olvidaste tu contraseña?</Link>
                     </form>
                     <Link to='/registrar' className='text-red-500 text-sm mt-3 text-end block'>Registrarse aquí</Link>
