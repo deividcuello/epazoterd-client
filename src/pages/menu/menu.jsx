@@ -5,7 +5,7 @@ function Menu() {
     <section className="container mx-auto">
       <div>
         <h1 className="text-5xl from-[#01AA55] via-white to-[#F62E2C] bg-gradient-to-r bg-clip-text text-transparent font-dancing-script inline-block">
-          Menú Epazote
+          Menu Epazote
         </h1>
         <div className="[&>*]:grid [&>*]:grid-cols-1 [&>*]:sm:grid-cols-[70%_30%] [&>*]:text-center [&>*]:sm:text-start [&>*]:p-2 [&>*]:border [&>*]:rounded-full [&>*]:mt-1 [&>*]:border-customBlack mt-5 max-w-[50rem] [&>*]:bg-gradient-to-r [&>*]:from-[#01AA55] [&>*]:via-white [&>*]:to-[#F62E2C] text-customBlack font-bold">
           <div>
@@ -21,15 +21,15 @@ function Menu() {
             <span className="text-2xl sm:text-base sm:text-end">RD$40.00</span>
           </div>
           <div>
-            <span>Café</span>
+            <span>Cafe</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$15.00</span>
           </div>
           <div>
-            <span>Té</span>
+            <span>Te</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$15.00</span>
           </div>
           <div>
-            <span>Jugos (china, limón, tamarindo, fruit punch, chinola)</span>
+            <span>Jugos (china, limon, tamarindo, fruit punch, chinola)</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$50.00</span>
           </div>
           <div>
@@ -39,77 +39,63 @@ function Menu() {
         </div>
       </div>
       <div className="mt-5">
+        <div className="flex justify-between gap-1 max-w-[50rem]">
         <h1 className="text-3xl from-[#01AA55] via-white to-[#F62E2C] bg-gradient-to-r bg-clip-text text-transparent font-dancing-script inline-block">
           Almuerzo
         </h1>
-        <div className="[&>*]:grid [&>*]:grid-cols-1 [&>*]:sm:grid-cols-2 [&>*]:text-center [&>*]:sm:text-start [&>*]:p-2 [&>*]:border [&>*]:rounded-full [&>*]:mt-1 [&>*]:border-customBlack mt-1 max-w-[50rem] [&>*]:bg-gradient-to-r [&>*]:from-[#01AA55] [&>*]:via-white [&>*]:to-[#F62E2C] text-customBlack font-bold">
+        <span className="text-2xl sm:text-base sm:text-end font-semibold bg-yellow p-2 rounded-xl text-blackBodyBg">RD$220.00</span>
+        </div>
+        <div className="[&>*]:grid [&>*]:grid-cols-1 [&>*]:text-center [&>*]:sm:text-start [&>*]:p-2 [&>*]:border [&>*]:rounded-full [&>*]:mt-1 [&>*]:border-customBlack mt-1 max-w-[50rem] [&>*]:bg-gradient-to-r [&>*]:from-[#01AA55] [&>*]:via-white [&>*]:to-[#F62E2C] text-customBlack font-bold">
           <div>
             <span>Arroz blanco</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Moro rojo</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Moro negro</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Chofan</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
-            <span>Plátano maduro</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
+            <span>Platano maduro</span>
           </div>
           <div>
-            <span>Arepita maíz</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
+            <span>Arepita maiz</span>
           </div>
           <div>
             <span>Arepita yuca</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Habichuela roja</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Pollo frito</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Pollo guisado</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Cerdo guisado</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Res guisada</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
-            <span>Albóndiga de res</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
+            <span>Albondiga de res</span>
           </div>
           <div>
             <span>Berenjena guisada</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Ensalada verde</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Ensalada rusa</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
             <span>Ensalada de codito</span>
-            <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
         </div>
       </div>
