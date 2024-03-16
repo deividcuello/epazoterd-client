@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { checkLogin, getToken } from '../../api';
+import { getToken } from '../../api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
