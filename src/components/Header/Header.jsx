@@ -49,7 +49,7 @@ function Header() {
           <Link to='/'>
             <img src="/logo.png" alt="" className="w-32" />
           </Link>
-          {!userInfo.username ? <Link to='login' className="hidden md:inline-block bg-blue-500 text-blackBodyBg px-2 py-1 font-semibold rounded-xl">Iniciar sesion</Link> :
+          {!userInfo.username ? <Link to='login' className="hidden md:inline-block bg-blue-500 text-blackBodyBg px-2 py-1 font-semibold rounded-xl">Iniciar sesión</Link> :
             <div className="relative hidden md:inline-block">
               <button onClick={() => setUserDropDown(!userDropDown)} className="flex items-center justify-center gap-2">Hola, {userInfo.username} {!userDropDown ? <FaChevronDown /> : <FaChevronUp />}</button>
               <div className={`${!userDropDown ? 'hidden' : 'flex'} text-xs items-start flex-col gap-2 w-28 absolute bg-customBlack p-2 rounded-xl`}>
