@@ -34,9 +34,9 @@ function RecoverAccount() {
     const tempCode = Math.floor(1000 + Math.random() * 9000);
     setActivationCode(tempCode);
     const res = await sendEmail({
-      subject: `CIDIL - Codigo de recuperacion`,
+      subject: `Recupera tu cuenta en Epazote: Sigue los pasos para restablecer tu contraseña `,
       recipientList: email,
-      text: `Hola, su codigo de recuperacion es ${tempCode}`,
+      text: `Hemos recibido una solicitud para restablecer la contraseña de tu cuenta en Epazote. Para completar este proceso y recuperar el acceso, por favor utiliza el siguiente código de verificación: ${tempCode}. Una vez que hayas verificado tu identidad, podrás establecer una nueva contraseña y acceder nuevamente a tu cuenta en Epazote. Si no has solicitado este cambio, por favor ignora este mensaje o contáctanos de inmediato. ¡Gracias! El equipo de Epazote`,
       code: Math.floor(1000 + Math.random() * 9000),
     });
     return toast.success(`Codigo enviado`, {
@@ -82,21 +82,21 @@ function RecoverAccount() {
             );
       } else{
         if(password.length < 8){
-            return toast.error(`Longitud minima de contraseña debe ser de 8 caracteres`, {
+            return toast.error(`Longitud mínima de contraseña debe ser de 8 caracteres`, {
                 position: "top-center"
               })
         }
         else if(codeInput != activationCode){
-            return toast.error(`Codigo no correcto.`, {
+            return toast.error(`Código de recuperación`, {
                 position: "top-center"
               })
         }
         else if(password != confirmPassword){
-            return toast.error(`Contraseñas no coinciden.`, {
+            return toast.error(`Contraseñas no coinciden`, {
                 position: "top-center"
               })
         }
-        toast.error(`Su cuenta fue encontrada. Coloque los datos correctamente.`, {
+        toast.error(`Su cuenta fue encontrada. Coloque los datos correctamente`, {
             position: "top-center"
           })
       }
@@ -108,7 +108,7 @@ function RecoverAccount() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center bg-[url('/cidil.jpg')] bg-cover bg-no-repeat w-full bg-center relative overflow-hidden">
+    <div className="min-h-screen flex justify-center bg-cover bg-no-repeat w-full bg-center relative overflow-hidden">
       <div className="flex items-center justify-center">
         <div className="min-h-screen w-screen flex justify-center py-5 backdrop-brightness-[.3] overflow-y-auto">
           <div className="h-fit bg-customBlack bg-opacity-80 p-3 rounded-2xl">
@@ -137,7 +137,7 @@ function RecoverAccount() {
                 />
               </div>
               <div className="flex flex-col mt-4">
-                <label htmlFor="password">Codigo de verificacion</label>
+                <label htmlFor="password">Código de verificación</label>
                 <input
                   type="text"
                   id="codeInput"
@@ -151,7 +151,7 @@ function RecoverAccount() {
                   className="text-blue-500 text-sm font-bold text-start break-words"
                   onClick={sendCode}
                 >
-                  Enviar codigo de verificacion a:{" "}
+                  Enviar código de verificación a:{" "}
                   <span>{email}</span>
                 </button>
               </div>

@@ -105,9 +105,9 @@ function Register() {
         const tempCode = Math.floor(1000 + Math.random() * 9000);
         setActivationCode(tempCode);
         const res = await sendEmail({
-          subject: `Epazote - Código para verificar email de registro`,
+          subject: `Verificación de registro en Epazote: Por favor, confirma tu correo electrónico`,
           recipientList: email,
-          text: `Hola, su código para verificar el registro de su Email es ${tempCode}`,
+          text: `¡Gracias por comenzar el proceso de registro en Epazote! Para completarlo y acceder a nuestra deliciosa cocina mexicana, necesitamos que verifiques tu dirección de correo electrónico con el siguiente código: ${tempCode}. Una vez hecho esto, podrás disfrutar de todas nuestras exquisiteces culinarias. ¡Te esperamos pronto en Epazote para una experiencia gastronómica inigualable!`,
           code: Math.floor(1000 + Math.random() * 9000),
         });
         toast.success(`El código fue enviado`, {
