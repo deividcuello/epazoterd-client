@@ -233,7 +233,7 @@ function Partner() {
                             </form>
                             <div className='bg-red-950 p-6 rounded-xl flex items-start justify-start flex-col max-w-[33.9rem] mt-5'>
                                 <h4>Curriculum</h4>
-                                <a href={`https://deividcuello.pythonanywhere.com${cv}`} target='_blank' className='text-blue-400 underline break-words'>Ver curriculum</a>
+                                <a href={`https://www.pythonanywhere.com/user/deividcuello/files/home/deividcuello${cv}`} target='_blank' className='text-blue-400 underline break-words'>Ver curriculum</a>
                             </div>
                             <div className='bg-red-950 p-6 rounded-xl flex items-start justify-start flex-col max-w-[33.9rem] mt-5'>
                                 <h4>Mensaje</h4>
