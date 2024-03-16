@@ -30,7 +30,7 @@ function Register() {
         let formData = new FormData();
         formData.append("email", emai.toLowerCase().trim());
         formData.append("password", password);
-        fetch('http://localhost:8000/api/auth/login', {
+        fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
             credentials: "include",
             method: "POST",
             body: formData,
@@ -47,7 +47,7 @@ function Register() {
         setActivationCode(Math.random())
         formData.append("email", email.toLowerCase().trim());
         formData.append("password", password);
-        fetch('http://localhost:8000/api/auth/login', {
+        fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
             credentials: "include",
             method: "POST",
             body: formData,
@@ -71,7 +71,7 @@ function Register() {
                 formData.append("adminAccount", false);
                 formData.append("status", 'NONE');
 
-                let newUser = fetch('http://localhost:8000/api/auth/register', {
+                let newUser = fetch('https://deividcuello.pythonanywhere.com/api/auth/register', {
                     credentials: "include",
                     headers: { "X-CSRFToken": Cookies.get("csrftoken") },
                     method: "POST",

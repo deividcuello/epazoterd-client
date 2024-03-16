@@ -35,16 +35,6 @@ function Login() {
             localStorage.setItem("refreshToken", res.data.refresh);
             window.location.href = '/'
         }
-        // fetch('http://localhost:8000/api/auth/login', {
-        //     credentials: "include",
-        //     method: "POST",
-        //     body: formData,
-        // }).then((res) => res.ok ? window.location.reload(false) : toast.error(`Hubo un error`, {
-        //     position: "top-center"
-        //   }))
-        // .catch(() => toast.error(`Hubo un error`, {
-        //     position: "top-center"
-        //   }))
 
     }
 

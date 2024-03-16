@@ -55,7 +55,7 @@ function Users() {
           formData.append("isDelete", true);
           formData.append("adminAccount", true);
           formData.append("status", 'INTERNAL');
-          let newUser = fetch('http://localhost:8000/api/auth/register', {
+          let newUser = fetch('https://deividcuello.pythonanywhere.com/api/auth/register', {
             credentials: "include",
             headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             method: "POST",
@@ -77,7 +77,7 @@ function Users() {
             }
           }
           let editUser = fetch(
-            `http://localhost:8000/api/auth/users/${action.id}/`,
+            `https://deividcuello.pythonanywhere.com/api/auth/users/${action.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },

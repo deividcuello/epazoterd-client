@@ -91,7 +91,7 @@ function Partner() {
         formData.append("phone", phone);
         formData.append("message", additionalInfo.trim());
         formData.append("user_pk", userInfo.id);
-        fetch('http://localhost:8000/api/partner/', {
+        fetch('https://deividcuello.pythonanywhere.com/api/partner/', {
           credentials: "include",
           headers: { "X-CSRFToken": Cookies.get("csrftoken") },
           method: "POST",
@@ -116,7 +116,7 @@ function Partner() {
         formData.append("update_name", true);
         if (name) {
           fetch(
-            `http://localhost:8000/api/partner/${isUserPartner[0].id}/`,
+            `https://deividcuello.pythonanywhere.com/api/partner/${isUserPartner[0].id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -149,7 +149,7 @@ function Partner() {
         formData.append("update_phone", true);
         if (name) {
           fetch(
-            `http://localhost:8000/api/partner/${isUserPartner[0].id}/`,
+            `https://deividcuello.pythonanywhere.com/api/partner/${isUserPartner[0].id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -233,7 +233,7 @@ function Partner() {
                             </form>
                             <div className='bg-red-950 p-6 rounded-xl flex items-start justify-start flex-col max-w-[33.9rem] mt-5'>
                                 <h4>Curriculum</h4>
-                                <a href={`http://localhost:8000${cv}`} target='_blank' className='text-blue-400 underline break-words'>Ver curriculum</a>
+                                <a href={`https://deividcuello.pythonanywhere.com${cv}`} target='_blank' className='text-blue-400 underline break-words'>Ver curriculum</a>
                             </div>
                             <div className='bg-red-950 p-6 rounded-xl flex items-start justify-start flex-col max-w-[33.9rem] mt-5'>
                                 <h4>Mensaje</h4>
