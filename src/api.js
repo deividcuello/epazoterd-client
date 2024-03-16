@@ -7,18 +7,7 @@ axios.defaults.withCredentials = true;
 
 
 export const checkLogin = () => {
-  return fetch('https://deividcuello.pythonanywhere.com/api/auth/user').then((response) => {
-      if (response.ok) {
-        return response;
-      }
-      throw new Error('Something went wrong');
-    })
-    .then((responseJson) => {
-      // Do something with the response
-    })
-    .catch((error) => {
-      console.log('hola')
-    });
+  return axios.get("https://deividcuello.pythonanywhere.com/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} });
   
 
 };
