@@ -44,7 +44,68 @@ function RecoverAccount() {
       })
   }
 
-
+  async function restorePassword(e) {
+    e.preventDefault();
+    const res = await getUsers({ email: email.toLowerCase().trim()});
+    let id
+    try {
+        id = res.data.users[0].id;
+    } catch (error) {
+        return toast.error(`Su cuenta no fue encontrada`, {
+            position: "top-center"
+          })
+    }
+    if (id) {
+    let formData = new FormData();
+      formData.append("password", password);
+      formData.append("recover_password", true);
+      if(password.length >= 8 && password == confirmPassword && codeInput == activationCode){
+          let editUser = fetch(`http://localhost:8000/api/auth/users/${id}/`, {
+            credentials: "include",
+            headers: { "X-CSRFToken": Cookies.get("csrftoken") },
+            method: "PUT",
+            body: formData,
+          })
+            .then((response) =>
+              email && password && confirmPassword
+                ? toast.success(`Tu cuenta fue recuperada exitosamente`, {
+                    position: "top-center"
+                  })
+                : toast.error(`Hubo un error`, {
+                    position: "top-center"
+                  })
+            )
+            .catch((error) =>
+            toast.error(`Hubo un error`, {
+                position: "top-center"
+              })
+            );
+      } else{
+        if(password.length < 8){
+            return toast.error(`Longitud minima de contraseña debe ser de 8 caracteres`, {
+                position: "top-center"
+              })
+        }
+        else if(codeInput != activationCode){
+            return toast.error(`Codigo no correcto.`, {
+                position: "top-center"
+              })
+        }
+        else if(password != confirmPassword){
+            return toast.error(`Contraseñas no coinciden.`, {
+                position: "top-center"
+              })
+        }
+        toast.error(`Su cuenta fue encontrada. Coloque los datos correctamente.`, {
+            position: "top-center"
+          })
+      }
+    } else{
+        toast.error(`Hubo un error`, {
+            position: "top-center"
+          })
+    }
+  }
 
   return (
     <div className="min-h-screen flex justify-center bg-[url('/cidil.jpg')] bg-cover bg-no-repeat w-full bg-center relative overflow-hidden">
