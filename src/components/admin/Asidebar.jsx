@@ -36,7 +36,7 @@ function Asidebar() {
                 <li className='rounded-2xl'><NavLink to='/admin/socios' className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }>Socios</NavLink></li>
-              <li><button onClick={submitLogout} className='bg-secondaryColor px-2 py-1 rounded-2xl'>Cerrar sesion</button></li>
+              <li><button onClick={submitLogout} className='bg-secondaryColor px-2 py-1 rounded-2xl'>Cerrar sesión</button></li>
           </ul>
         </nav>
       </div>}

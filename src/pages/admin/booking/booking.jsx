@@ -52,11 +52,11 @@ function BookingAdmin() {
                     <tr>
                         <th>Usuario</th>
                         <th>Fecha</th>
-                        <th>Telefono</th>
+                        <th>Teléfono</th>
                         <th>Hora de llegada</th>
                         <th>Hora de salida</th>
-                        <th>Codigo de la reservacion</th>
-                        <th>Informacion adicional</th>
+                        <th>Código de la reservación</th>
+                        <th>Información adicional</th>
                         <th>Acciones</th>
                     </tr>
                     {bookings.map((booking, index) => (

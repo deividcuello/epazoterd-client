@@ -59,7 +59,7 @@ function Header() {
                 <button>
                   <Link to='perfil'>Editar perfil</Link>
                 </button>
-                <button onClick={submitLogout}>Cerrar sesion</button>
+                <button onClick={submitLogout}>Cerrar sesión</button>
               </div>
             </div>
           }
@@ -100,10 +100,10 @@ function Header() {
                   isPending ? "pending" : isActive ? "active" : ""
                 }
               >
-                Menu
+                Menú
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/clases-de-comida"
                 className={({ isActive, isPending }) =>
@@ -112,7 +112,7 @@ function Header() {
               >
                 Clases de comida
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to="/contacto"
@@ -147,13 +147,13 @@ function Header() {
                   <button>
                     <Link to='perfil'>Editar perfil</Link>
                   </button>
-                  <button onClick={submitLogout}>Cerrar sesion</button>
+                  <button onClick={submitLogout}>Cerrar sesión</button>
                 </div>
               </div>
             </li>
             <Link to='/reservar'>
               <button className="bg-secondaryColor text-blackBodyBg font-semibold py-1 px-2 rounded-xl mt-3 md:mt-0 ml-3 w-fit">
-                Reservacion
+              Reservación
               </button>
             </Link>
           </ul>

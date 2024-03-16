@@ -87,9 +87,13 @@ function Register() {
             }
         } else {
             if(code != activationCode){
-                return toast.error(`El codigo no es valido`, {
+                return toast.error(`El código no es valido`, {
                     position: "top-center"
                 })
+            } else if(password.length < 8){
+                return toast.error("Longitud mínima de contraseña es 8", {
+                    position: "top-center",
+                  });
             }
             toast.error(`Hubo un error`, {
                 position: "top-center"
@@ -101,12 +105,12 @@ function Register() {
         const tempCode = Math.floor(1000 + Math.random() * 9000);
         setActivationCode(tempCode);
         const res = await sendEmail({
-          subject: `Epazote - Codigo para verificar email de registro`,
+          subject: `Epazote - Código para verificar email de registro`,
           recipientList: email,
-          text: `Hola, su codigo para verificar el registro de su Email es ${tempCode}`,
+          text: `Hola, su código para verificar el registro de su Email es ${tempCode}`,
           code: Math.floor(1000 + Math.random() * 9000),
         });
-        toast.success(`El codigo fue enviado`, {
+        toast.success(`El código fue enviado`, {
             position: "top-center"
         })
       }
@@ -114,7 +118,7 @@ function Register() {
     return (
         <section className='container mx-auto min-h-[calc(100vh-141.97px-38.73px)] pb-5 mt-5'>
             <div className='flex flex-col items-center'>
-                <h2 className='mb-4'>Registrate</h2>
+                <h2 className='mb-4'>Regístrate</h2>
                 <div className='bg-customBlack  w-[25rem] rounded-2xl px-4'>
                     <form onSubmit={(e) => submitUser(e)} className='flex flex-col gap-2 w-full p-5 rounded-2xl'>
                         <img src="/logo.png" alt="" className=' w-36 mx-auto' />
@@ -125,8 +129,8 @@ function Register() {
                             <input type="email" onChange={(e) => setEmail(e.target.value)} name="" id="" placeholder='Correo' className='w-full p-2 rounded-xl bg-blackBodyBg' />
                         </div>
                         <div>
-                            <input type="text" name="" id="" placeholder='Codigo' maxlength="4" onChange={(e) => setCode(e.target.value)} value={code} className='w-full p-2 rounded-xl bg-blackBodyBg' />
-                            <span onClick={sendCode} className='text-sm text-blue-500 break-words cursor-pointer'>Click para enviar codigo a: {email}</span>
+                            <input type="text" name="" id="" placeholder='Código' maxlength="4" onChange={(e) => setCode(e.target.value)} value={code} className='w-full p-2 rounded-xl bg-blackBodyBg' />
+                            <span onClick={sendCode} className='text-sm text-blue-500 break-words cursor-pointer'>Click para enviar código a: {email}</span>
                         </div>
                         <div>
                             <input type="password" onChange={(e) => setPassword(e.target.value)} name="" id="" placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
@@ -137,7 +141,7 @@ function Register() {
                         <input type="submit" value='Crear' className='p-1 cursor-pointer bg-mainColor rounded-2xl font-semibold text-customBlack' />
                     </form>
                 </div>
-                <Link to='/login' className='text-sm py-1 px-2 text-blue-500 font-semibold rounded-xl'>Ir a Iniciar sesion</Link>
+                <Link to='/login' className='text-sm py-1 px-2 text-blue-500 font-semibold rounded-xl'>Ir a Iniciar sesión</Link>
             </div>
             <ToastContainer />
         </section>

@@ -16,7 +16,11 @@ export const getToken = (user) => {
   return axios.post('https://deividcuello.pythonanywhere.com/api/auth/token/',user);
 };
 
-export const getUsers = () => {
+export const getUsers = (url_parameters = {}) => {
+  if(url_parameters.email){
+    return axios.get(`https://deividcuello.pythonanywhere.com/api/auth/users?email=${url_parameters.email}`)
+}
+
   return axios.get("https://deividcuello.pythonanywhere.com/api/auth/users");
 };
 

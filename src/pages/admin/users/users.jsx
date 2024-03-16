@@ -71,7 +71,7 @@ function Users() {
           formData.append("status", action.status);
           if(action.tempEmail != email){
             if(code != ActivationCode){
-              return toast.error(`El codigo es incorrecto`, {
+              return toast.error(`El código es incorrecto`, {
                 position: "top-center"
               })
             }
@@ -100,11 +100,16 @@ function Users() {
         console.log(error)
       }
     } else {
+
       if(ActivationCode != code){
         return toast.error(`Codigo erroneo`, {
           position: "top-center"
-        })
-      }
+        }) 
+      } else if(password.length < 8){
+        return toast.error("Longitud mínima de contraseña es 8", {
+            position: "top-center",
+          });
+    }
       toast.error(`Hubo un error`, {
         position: "top-center"
       })
@@ -213,7 +218,7 @@ function Users() {
             <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} name="" id="" placeholder='Confirmar ontraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
           </div>
           <input type="submit" value='Crear' className='p-1 cursor-pointer bg-mainColor rounded-2xl font-semibold text-customBlack' />
-          <span className='text-secondaryColor text-xs mt-3'>Nota: Los usuarios creados seran usuarios internos, por lo que tendran acceso de administrador, para crear un usuario no interno, debe de realizarlo desde la pagina de registro fuera de /admin</span>
+          <span className='text-secondaryColor text-xs mt-3'>Nota: Los usuarios creados serán usuarios internos, por lo que tendrán acceso de administrador, para crear un usuario no interno, debe de realizarlo desde la página de registro fuera de /admin</span>
         </form>
       </div>}
       <ToastContainer />

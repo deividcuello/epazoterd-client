@@ -24,7 +24,6 @@ function Partner() {
                 const res1 = await getPartners()
                 const filterPartners = res1.data.partner.filter((item) => item.user.id == res.data.user.id)
                 setIsUserPartner(filterPartners)
-                console.log('hey',filterPartners[0].phone)
                 if(filterPartners.length > 0){
                     setPhone(filterPartners[0].phone)
                     setName(filterPartners[0].name)
@@ -126,7 +125,7 @@ function Partner() {
           )
             .then((response) =>
               name
-                ? toast.success("Su Nombre fue actualizada exitosamente", {
+                ? toast.success("Su nombre fue actualizado exitosamente", {
                     position: "top-center",
                   })
                 : toast.error("Hubo un error", {
@@ -159,7 +158,7 @@ function Partner() {
           )
             .then((response) =>
               name
-                ? toast.success("Su numero de telefono fue actualizada exitosamente", {
+                ? toast.success("Su número de teléfono fue actualizada exitosamente", {
                     position: "top-center",
                   })
                 : toast.error("Hubo un error", {
@@ -170,7 +169,7 @@ function Partner() {
               toast.error("Hubo un error", { position: "top-center" }),
             );
         } else{
-            toast.error("Introduce un nombre", { position: "top-center" })
+            toast.error("Introduce un número de teléfono", { position: "top-center" })
         }
       }
 
@@ -188,7 +187,7 @@ function Partner() {
                                     <input type="text" onChange={(e) => setName(e.target.value)} value={name} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
                                 </div>
                                 <div>
-                                    <label htmlFor="">Numero de telefono</label>
+                                    <label htmlFor="">Número de teléfono</label>
                                     <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e) => setPhone(e.target.value)} value={phone} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
                                     <span className='text-xs text-secondaryColor'>Formato solo numeros: XXX-XXX-XXXX</span>
                                 </div>
@@ -202,9 +201,9 @@ function Partner() {
                                     <span className='text-sm text-secondaryColor font-semibold'>{additionalInfo.length}/255</span>
                                 </div>
                                 <input type="submit" value='Reservar' className='bg-mainColor text-blackBodyBg p-2 rounded-xl font-semibold cursor-pointer' />
-                                <span className='text-xs text-white bg-gray-800 p-2 rounded-xl'>Asegurese que tiene acceso tanto al correo  <span className='text-sm text-red-500 font-bold'>{userInfo.email}</span> y a su numero telefonico <span className='text-sm text-red-500 font-bold'>{phone}</span> ya que seran utilizados para comunicarnos con usted</span>
+                                <span className='text-xs text-white bg-gray-800 p-2 rounded-xl'>Asegúrese que tiene acceso tanto al correo<span className='text-sm text-red-500 font-bold'>{userInfo.email}</span> y a su número telefónico <span className='text-sm text-red-500 font-bold'>{phone}</span> ya que serán utilizados para comunicarnos con usted</span>
 
-                                <span className='text-xs text-white bg-gray-800 p-2 rounded-xl'>Para seguridad,al momento de hacerse socio, no podra editar el curriculum ni el mensaje que describe porque deseas ser socio nuestro, para cambios, debera dejar de ser socios y volver a inscribirse como socio nuevamente</span>
+                                <span className='text-xs text-white bg-gray-800 p-2 rounded-xl'>Para seguridad, al momento de hacerse socio, no podrá editar el curriculum ni el mensaje que describe porque deseas ser socio nuestro, para cambios, deberá dejar de ser socios y volver a inscribirse como socio nuevamente</span>
                             </form>
                         </div>
                     </div>
@@ -223,7 +222,7 @@ function Partner() {
                                 </div>
                             </form>
                             <form onSubmit={(e) => updatePhone(e)} className='bg-customBlack p-6 rounded-xl flex items-start justify-start flex-col w-fit mt-5'>
-                                <h4>Numero telefonico</h4>
+                                <h4>Número de teléfono</h4>
                                 <div className='mt-2'>
                                     <div className='flex gap-2'>
                                         <input type="tel" onChange={e => setPhone(e.target.value)} value={phone} className='bg-blackBodyBg rounded-xl p-1'/>
@@ -244,9 +243,9 @@ function Partner() {
                     </div>
                 </div>
                 :
-                <div className='bg-customBlack p-5 rounded-xl w-fit mx-auto flex items-center justify-center flex-col gap-2'>
-                    <h1>Inicia sesion para ser partner:</h1>
-                    <Link to='/login' className='mx-auto text-center'><button className='px-2 py-1 bg-mainColor font-semibold text-blackBodyBg rounded-xl'>Iniciar sesion</button></Link>
+                <div className='bg-customBlack p-5 rounded-xl w-fit mx-auto flex items-center min-h-screen justify-center flex-col gap-2'>
+                    <h1>Inicia sesión para ser partner:</h1>
+                    <Link to='/login' className='mx-auto text-center'><button className='px-2 py-1 bg-mainColor font-semibold text-blackBodyBg rounded-xl'>Iniciar sesión</button></Link>
                 </div>
             }
             <ToastContainer />

@@ -18,6 +18,7 @@ import BookingAdmin from "./pages/admin/booking/booking";
 import Dashboard from "./pages/admin/dashboard/dashboard";
 import Partner from "./pages/partner/partner";
 import PartnerAdmin from "./pages/admin/partner/partner";
+import RecoverAccount from "./pages/admin/recover-account/recover-account";
 
 function App() {
   const [userInfo, setUserInfo] = useState({})
@@ -50,6 +51,7 @@ function App() {
             <Route path="/perfil" element={<Profile />}></Route>
             <Route path="/reservar" element={<Booking />}></Route>
             <Route path="/hazte-socio" element={<Partner />}></Route>
+            <Route path="/recuperar-cuenta" element={<RecoverAccount />}></Route>
             {userInfo.adminAccount && <Route path="/admin/tablero" element={<Dashboard />}></Route>}
             {userInfo.adminAccount && <Route path="/admin/usuarios" element={<Users />}></Route>}
             {userInfo.adminAccount && <Route path="/admin/reservaciones" element={<BookingAdmin />}></Route>}

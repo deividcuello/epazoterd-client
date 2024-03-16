@@ -96,7 +96,7 @@ function Profile() {
             );
         } else {
           if(activationCode != code){
-            return toast.error("El codigo no es correcto", { position: "top-center" });
+            return toast.error("El código no es correcto", { position: "top-center" });
           }
           toast.error("Hubo un error", { position: "top-center" });
         }
@@ -131,7 +131,7 @@ function Profile() {
               toast.error("Hubo un error", { position: "top-center" }),
             );
         } else if (password.length < 8) {
-          toast.error("Longitud minima de contraseña es 8", {
+          toast.error("Longitud mínima de contraseña es 8", {
             position: "top-center",
           });
         } else {
@@ -143,12 +143,12 @@ function Profile() {
         const tempCode = Math.floor(1000 + Math.random() * 9000);
         setActivationCode(tempCode);
         const res = await sendEmail({
-          subject: `Epazote - Codigo para verificar email de registro`,
+          subject: `Epazote - Código para verificar email de registro`,
           recipientList: email,
-          text: `Hola, su codigo para verificar el registro de su Email es ${tempCode}`,
+          text: `Hola, su código para verificar el registro de su email en Epazote es ${tempCode}`,
           code: Math.floor(1000 + Math.random() * 9000),
         });
-        toast.success(`El codigo fue enviado`, {
+        toast.success(`El código fue enviado`, {
             position: "top-center"
         })
       }
@@ -176,7 +176,7 @@ function Profile() {
                                     <div className='flex flex-col gap-2'>
                                         <input type="email" name="" id="" onChange={(e) => setEmail(e.target.value)} value={email} className='bg-blackBodyBg p-2 rounded-xl' />
                                     </div>
-                                    <label className='text-sm mt-4 inline-block'>Codigo</label>
+                                    <label className='text-sm mt-4 inline-block'>Código</label>
                                     <div className='flex flex-col gap-2'>
                                         <input type="text" name="" id="" maxlength="4" onChange={(e)=>setCode(e.target.value)} className='bg-blackBodyBg p-2 rounded-xl' />
                                     </div>

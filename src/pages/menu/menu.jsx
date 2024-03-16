@@ -5,7 +5,7 @@ function Menu() {
     <section className="container mx-auto">
       <div>
         <h1 className="text-5xl from-[#01AA55] via-white to-[#F62E2C] bg-gradient-to-r bg-clip-text text-transparent font-dancing-script inline-block">
-          Menu Epazote
+          Menú Epazote
         </h1>
         <div className="[&>*]:grid [&>*]:grid-cols-1 [&>*]:sm:grid-cols-[70%_30%] [&>*]:text-center [&>*]:sm:text-start [&>*]:p-2 [&>*]:border [&>*]:rounded-full [&>*]:mt-1 [&>*]:border-customBlack mt-5 max-w-[50rem] [&>*]:bg-gradient-to-r [&>*]:from-[#01AA55] [&>*]:via-white [&>*]:to-[#F62E2C] text-customBlack font-bold">
           <div>
@@ -21,15 +21,15 @@ function Menu() {
             <span className="text-2xl sm:text-base sm:text-end">RD$40.00</span>
           </div>
           <div>
-            <span>Cafe</span>
+            <span>Café</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$15.00</span>
           </div>
           <div>
-            <span>Te</span>
+            <span>Té</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$15.00</span>
           </div>
           <div>
-            <span>Jugos (china, limon, tamarindo, fruit punch, chinola)</span>
+            <span>Jugos (china, limón, tamarindo, fruit punch, chinola)</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$50.00</span>
           </div>
           <div>
@@ -60,11 +60,11 @@ function Menu() {
             <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
-            <span>Platano maduro</span>
+            <span>Plátano maduro</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
-            <span>Arepita maiz</span>
+            <span>Arepita maíz</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
@@ -92,7 +92,7 @@ function Menu() {
             <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>
-            <span>Albondiga de res</span>
+            <span>Albóndiga de res</span>
             <span className="text-2xl sm:text-base sm:text-end">RD$220.00</span>
           </div>
           <div>

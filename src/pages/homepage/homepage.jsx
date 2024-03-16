@@ -61,11 +61,11 @@ function Homepage() {
                                 <h3 className='text-5xl w-3/4 translate-y-3 from-[#01AA55] via-white to-[#F62E2C] bg-gradient-to-r bg-clip-text text-transparent font-dancing-script'>Los tacos más sabrosos de toda la República Dominicana, ¡solo en nuestro restaurante!</h3>
                             </div>
                             <div className='bg-secondaryColor w-full bg-opacity-40 p-6 mt-7'>
-                                <h3 className='container mx-auto text-4xl sm:text-6xl w-full '>Pero eso no es todo, tienes que ver nuestro menu 😋</h3>
+                                <h3 className='container mx-auto text-4xl sm:text-6xl w-full '>Pero eso no es todo, tienes que ver nuestro menú 😋</h3>
                             </div>
                             <div className='container mx-auto'>
                                 <Link to='/menu'>
-                                    <button className='bg-yellow hover:bg-mainColor transition-all flex items-center gap-3 py-2 px-5 text-4xl sm:text-5xl mt-5 rounded-2xl text-gray-950'>Ver menu <FaHandPointLeft /></button>
+                                    <button className='bg-yellow hover:bg-mainColor transition-all flex items-center gap-3 py-2 px-5 text-4xl sm:text-5xl mt-5 rounded-2xl text-gray-950'>Ver menú <FaHandPointLeft /></button>
                                 </Link>
                             </div>
                         </div>
@@ -84,7 +84,7 @@ function Homepage() {
                         <div className='flex justify-center relative'>
                             <IoMdHappy color="yellow" size={'5rem'} className='absolute -top-20 bg-customBlack p-2 rounded-full' />
                         </div>
-                        <p>En nuestro restaurante, nos enorgullecemos de contar con los mejores chefs, verdaderos artistas culinarios que dominan el arte de combinar sabores y texturas para ofrecerte una experiencia gastronómica inigualable. Con su pasión por la cocina y su dedicación a la excelencia, nuestros chefs están listos para cautivarte con cada plato que preparan. Ven y déjate sorprender por la creatividad y maestría de nuestros talentosos chefs, quienes transforman cada comida en una obra de arte para tu disfrute</p>
+                        <p> Aquí, nos enorgullecemos de ofrecer no solo los mejores platos, sino también una experiencia gastronómica completa y satisfactoria. Nuestro equipo está dedicado a brindarte atención personalizada y amable en cada visita, asegurándonos de que te sientas como en casa desde el momento en que cruzas nuestras puertas. Desde la bienvenida hasta el último sorbo de tu bebida, estamos aquí para superar tus expectativas y hacer que tu experiencia sea inolvidable. ¡Descubre el verdadero significado de la hospitalidad en nuestro restaurante, donde cada detalle está cuidadosamente pensado para tu disfrute!</p>
                     </div>
                 </div>
             </div>

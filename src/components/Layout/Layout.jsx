@@ -29,9 +29,9 @@ const Layout = ({ children }) => {
     <>
       {((!location.pathname.toLowerCase().startsWith('/admin')) || (userInfo.adminAccount == false || userInfo.adminAccount == undefined)) &&
         <div>
-          {((location.pathname != '/login/' && location.pathname != '/login' && location.pathname != '/registrar' && location.pathname != '/recover-account')) && <Header />}
+          {((location.pathname != '/login/' && location.pathname != '/login' && location.pathname != '/registrar' && location.pathname != '/recover-account' && location.pathname.toLowerCase() != '/recuperar-cuenta')) && <Header />}
           {children}
-          {((location.pathname != '/login/' && location.pathname != '/login' && location.pathname != '/registrar' && location.pathname != '/recover-account')) && <Footer />}
+          {((location.pathname != '/login/' && location.pathname != '/login' && location.pathname != '/registrar' && location.pathname != '/recover-account' && location.pathname.toLowerCase() != '/recuperar-cuenta')) && <Footer />}
         </div>
       }
       

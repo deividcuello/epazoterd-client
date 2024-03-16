@@ -34,6 +34,8 @@ function Login() {
             localStorage.setItem("accessToken", res.data.access);
             localStorage.setItem("refreshToken", res.data.refresh);
             window.location.href = '/'
+        } else {
+            toast.error("Hubo un error", { position: "top-center" })
         }
 
     }
@@ -54,9 +56,11 @@ function Login() {
                         <div>
                             <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
                         </div>
-                        <input type='submit' value='Iniciar sesion' className='bg-yellow w-full text-customBlack p-2 font-bold rounded-xl cursor-pointer' />
+                        <input type='submit' value='Iniciar  sesión' className='bg-yellow w-full text-customBlack p-2 font-bold rounded-xl cursor-pointer' />
+                        <Link to='/recuperar-cuenta' className='text-red-500 text-sm mt-3 text-end block'>¿Olvidaste tu contraseña?</Link>
                     </form>
-                    <Link to='/registrar' className='text-red-500 text-sm mt-3 text-end block'>Registarse aqui</Link>
+                    <Link to='/registrar' className='text-red-500 text-sm mt-3 text-end block'>Registrarse aquí</Link>
+                    
                 </div>
             </div>
             <ToastContainer />
