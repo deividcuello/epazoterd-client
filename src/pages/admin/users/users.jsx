@@ -209,7 +209,7 @@ function Users() {
           </div>
           <div>
             <input type="text" name="" id="" placeholder='Codigo' maxlength="4" onChange={(e) => setCode(e.target.value)} value={code} className='w-full p-2 rounded-xl bg-blackBodyBg' />
-            <span onClick={sendCode} className='text-sm text-blue-500 break-words cursor-pointer'>Click para enviar codigo a: {email}</span>
+            <span onClick={sendCode} className='text-sm text-blue-500 break-words cursor-pointer'>Click para enviar código a: {email}</span>
           </div>
           <div>
             <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} name="" id="" placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
