@@ -22,7 +22,7 @@ function Homepage() {
 
     return (
         <section>
-            <div className="bg-[url('https://5.imimg.com/data5/SELLER/Default/2022/12/AF/ZX/XF/14177800/fast-food-restaurant-interior-designer.jpg')] min-h-[calc(100vh-141.97px)] bg-no-repeat w-full bg-cover bg-center relative">
+            <div className="bg-[url('./homepage/local.png')] min-h-[calc(100vh-141.97px)] bg-no-repeat w-full bg-cover bg-top relative">
                 <div className='w-full min-h-[calc(100vh-141.97px)] bg-black bg-opacity-70'>
                     <div className='container mx-auto'>
                         <div>
@@ -41,24 +41,24 @@ function Homepage() {
             </div>
             <div className='container mx-auto mt-5 [&>*]:mt-24 [&>*]:sm:mt-10'>
                 <div className='grid grid-cols-1 sm:grid-cols-[40%_60%] place-items-center gap-6'>
-                    <img src="https://handletheheat.com/wp-content/uploads/2015/06/beef-empanadas-SQUARE.jpg" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
+                    <img src="./homepage/food1.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
                     <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">En Santo Domingo, somos simplemente los mejores. En nuestro restaurante, satisfacemos los caprichos más exigentes con sabores incomparables. Únete a nosotros y experimenta el egoísmo de lo excepcional</p>
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-[40%_60%] place-items-center gap-6' dir={!isSm ? 'rtl' : 'lrt'}>
-                    <img src="https://www.allrecipes.com/thmb/RKpnSHLUDT2klppYgx8jAF47GyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52490-PuertoRicanSteamedRice-DDMFS-061-4x3-3c3da714aa614037ad1c135ec303526d.jpg" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
+                    <img src="./homepage/food2.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
                     <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">En nuestro restaurante, el arroz es una experiencia que te cautivará desde el primer bocado. Cada grano cocido a la perfección es una invitación a un mundo de sabores exquisitos. Ven y descubre por qué nuestro arroz es simplemente incomparable</p>
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-[40%_60%] place-items-center gap-6'>
-                    <img src="https://mojo.generalmills.com/api/public/content/d0OzlvMawUWJ6G_dDAdWQg_gmi_hi_res_jpeg.jpeg?v=271f2d6e&t=16e3ce250f244648bef28c5949fb99ff" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
+                    <img src="./homepage/food3.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
                     <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">En nuestro restaurante, ningún menú está completo sin un postre exquisito. Es el toque final que eleva tu experiencia gastronómica a la perfección</p>
                 </div>
             </div>
             <div className='mt-16 sm:mt-10'>
-                <div className="bg-[url('https://i.ytimg.com/vi/flyrLbzmpMM/maxresdefault.jpg')] min-[30rem] bg-no-repeat w-full bg-cover bg-center relative">
+                <div className="bg-[url('./homepage/food4.png')] min-[30rem] bg-no-repeat w-full bg-cover bg-center relative">
                     <div className='w-full min-h-[30rem] bg-black bg-opacity-70 py-4'>
                         <div className='w-full min-h-[30rem] flex justify-center items-start gap-2 flex-col'>
                             <div className='container mx-auto'>
-                                <h3 className='text-5xl w-3/4 translate-y-3 from-[#01AA55] via-white to-[#F62E2C] bg-gradient-to-r bg-clip-text text-transparent font-dancing-script'>El pollo frito más sabroso de toda la República Dominicana, ¡solo en nuestro restaurante!</h3>
+                                <h3 className='text-5xl w-3/4 translate-y-3 from-[#01AA55] via-white to-[#F62E2C] bg-gradient-to-r bg-clip-text text-transparent font-dancing-script'>Los tacos más sabrosos de toda la República Dominicana, ¡solo en nuestro restaurante!</h3>
                             </div>
                             <div className='bg-secondaryColor w-full bg-opacity-40 p-6 mt-7'>
                                 <h3 className='container mx-auto text-4xl sm:text-6xl w-full '>Pero eso no es todo, tienes que ver nuestro menu 😋</h3>
