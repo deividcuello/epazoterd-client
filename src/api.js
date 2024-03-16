@@ -10,9 +10,9 @@ export const checkLogin = async () => {
   try{
     const res = await axios.get("https://deividcuello.pythonanywhere.com/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} })
     if(res.status != 401){
-      return res
+      return 'res'
     }
-    return ''
+    return 'res'
   }
   catch(error){
     console.log('ehehefeeeeee')
