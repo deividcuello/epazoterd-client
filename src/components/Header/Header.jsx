@@ -17,7 +17,7 @@ function Header() {
         const res = await checkLogin()
         setUserInfo(res.data.user)
       } catch (error) {
-        console.log(error)
+        console.log('')
       }
     }
 

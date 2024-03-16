@@ -28,7 +28,7 @@ function App() {
         const res = await checkLogin()
         setUserInfo(res.data.user)
       } catch (error) {
-        console.log('holaaaaa')
+        console.log('')
       }
     }
 

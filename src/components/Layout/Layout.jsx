@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
         const userData = res.data.user
         setUserInfo(userData)
       } catch (error) {
-        console.log(error)
+        console.log('')
       }
     }
 
