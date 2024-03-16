@@ -128,7 +128,8 @@ function Profile() {
                   }),
             )
             .catch((error) =>
-              toast.error("Hubo un error", { position: "top-center" }),
+              // toast.error("Hubo un error", { position: "top-center" }),
+              console.log(error)
             );
         } else if (password.length < 8) {
           toast.error("Longitud mínima de contraseña es 8", {
