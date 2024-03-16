@@ -18,9 +18,9 @@ export default axios.interceptors.response.use(resp => resp, async error => {
     
         }
         refresh = false;
-        return error
+        return ''
     }
     catch(error){
-        console.log('bubo error')
+        console.log('')
     }
 })
