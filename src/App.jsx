@@ -18,6 +18,7 @@ import BookingAdmin from "./pages/admin/booking/booking";
 import Dashboard from "./pages/admin/dashboard/dashboard";
 import Partner from "./pages/partner/partner";
 import PartnerAdmin from "./pages/admin/partner/partner";
+import RecoverAccount from "./pages/recover-account/recover-account";
 
 function App() {
   const [userInfo, setUserInfo] = useState({})
