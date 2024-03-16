@@ -43,7 +43,7 @@ function Header() {
   }
 
   return (
-    <header className="sticky top-0 left-0 right-0 pb-2 pt-5 z-50 bg-blackBodyBg">
+    <header className="sticky top-0 left-0 right-0 pb-2 md:pb-0 pt-5 z-50 bg-blackBodyBg">
       <div className="md:container mx-auto">
         <div className="flex justify-between items-center">
           <Link to='/'>
