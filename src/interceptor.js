@@ -21,6 +21,6 @@ export default axios.interceptors.response.use(resp => resp, async error => {
         return ''
     }
     catch(error){
-        console.log('')
+        console.log('errorooroooo')
     }
 })
