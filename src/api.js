@@ -6,8 +6,9 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true;
 
 
-export const checkLogin = () => {
-  return axios.get("https://deividcuello.pythonanywhere.com/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} }).catch(err => console.log('nooooooooooooooo'));
+export const checkLogin = async () => {
+  const res = await axios.get("https://deividcuello.pythonanywhere.com/api/auth/user", { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} })
+  console.log('ehehe', res)
 };
 
 export const getToken = (user) => {
