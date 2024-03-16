@@ -17,7 +17,7 @@ export const checkLogin = () => {
       // Do something with the response
     })
     .catch((error) => {
-      console.log(error)
+      console.log('hola')
     });
   
 
