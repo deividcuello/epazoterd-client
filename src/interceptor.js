@@ -13,7 +13,7 @@ export default axios.interceptors.response.use(resp => resp, async error => {
                 localStorage.setItem('accessToken', response.data.access);
                 localStorage.setItem('refreshToken', response.data.refresh);
     
-                return axios(error.config);
+                return '';
             }
     
         }
