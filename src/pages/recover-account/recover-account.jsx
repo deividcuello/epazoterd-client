@@ -87,7 +87,7 @@ function RecoverAccount() {
               })
         }
         else if(codeInput != activationCode){
-            return toast.error(`Código de recuperación`, {
+            return toast.error(`Código de recuperación incorrecto`, {
                 position: "top-center"
               })
         }
