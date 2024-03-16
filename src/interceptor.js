@@ -21,6 +21,6 @@ export default axios.interceptors.response.use(resp => resp, async error => {
         return error
     }
     catch(error){
-        ''
+        console.log('bubo error')
     }
 })
