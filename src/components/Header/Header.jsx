@@ -8,17 +8,8 @@ import { checkLogin } from "../../api";
 function Header() {
   const [isMenu, setIsMenu] = useState(false)
   const [userDropDown, setUserDropDown] = useState(false)
-  const [isMd, setIsMd] = useState(true)
+  const [isMd, setIsMd] = useState(false)
   const [userInfo, setUserInfo] = useState('')
-
-
-  const handleResize = () => {
-    if (window.innerWidth < 768) {
-      setIsMd(true)
-    } else {
-      setIsMd(false)
-    }
-  }
 
   useEffect(() => {
     async function userData() {
@@ -30,10 +21,16 @@ function Header() {
       }
     }
 
-    handleResize()
     userData()
   }, [])
 
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsMd(true)
+    } else {
+      setIsMd(false)
+    }
+  }
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
@@ -56,7 +53,7 @@ function Header() {
             <div className="relative hidden md:inline-block">
               <button onClick={() => setUserDropDown(!userDropDown)} className="flex items-center justify-center gap-2">Hola, {userInfo.username} {!userDropDown ? <FaChevronDown /> : <FaChevronUp />}</button>
               <div className={`${!userDropDown ? 'hidden' : 'flex'} text-xs items-start flex-col gap-2 w-28 absolute bg-customBlack p-2 rounded-xl`}>
-             {userInfo.adminAccount && <button>
+                {userInfo.adminAccount && <button>
                   <Link to='/admin/tablero'>Admin</Link>
                 </button>}
                 <button>
@@ -126,13 +123,27 @@ function Header() {
                 Contacto
               </NavLink>
             </li>
+
+            <li>
+              <NavLink
+                to="/hazte-socio"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                Hazte socio
+              </NavLink>
+            </li>
             <li>
               <div className="inline-block md:hidden">
-               {userInfo.username ?  <button onClick={() => setUserDropDown(!userDropDown)} className="flex items-center justify-center gap-2">Hola, {userInfo.username} {!userDropDown ? <FaChevronDown /> : <FaChevronUp />}</button> : <Link to='login' className="inline-block md:hidden bg-blue-500 text-blackBodyBg px-2 py-1 font-semibold rounded-xl">Iniciar sesion</Link>}
+                {!userInfo.username ? <Link to='login' className="inline-block md:hidden bg-blue-500 text-blackBodyBg px-2 py-1 font-semibold rounded-xl">Iniciar sesion</Link> :
+                  <div className="relative inline-block md:hidden">
+                    <button onClick={() => setUserDropDown(!userDropDown)} className="flex items-center justify-center gap-2">Hola, {userInfo.username} {!userDropDown ? <FaChevronDown /> : <FaChevronUp />}</button>
+                  </div>}
                 <div className={`${!userDropDown ? 'hidden' : 'flex'} text-sm items-start pl-3 mt-2 flex-col gap-4 w-28 p-2 rounded-xl`}>
-                {userInfo.adminAccount && <button>
-                  <Link to='/admin/tablero'>Admin</Link>
-                </button>}
+                  {userInfo.adminAccount && <button>
+                    <Link to='/admin/tablero'>Admin</Link>
+                  </button>}
                   <button>
                     <Link to='perfil'>Editar perfil</Link>
                   </button>
@@ -141,7 +152,7 @@ function Header() {
               </div>
             </li>
             <Link to='/reservar'>
-              <button className="bg-secondaryColor text-blackBodyBg font-semibold py-1 px-2 rounded-2xl mt-3 md:mt-0 ml-5 w-fit">
+              <button className="bg-secondaryColor text-blackBodyBg font-semibold py-1 px-2 rounded-xl mt-3 md:mt-0 ml-3 w-fit">
                 Reservacion
               </button>
             </Link>
