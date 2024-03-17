@@ -32,7 +32,7 @@ function BookingAdmin() {
                 const data = res1.data.booking
                 setBookings(data)
             } catch (error) {
-                console.log('')
+                console.clear()
             }
         }
 
@@ -47,7 +47,7 @@ function BookingAdmin() {
 
     return (
         <section className='container mx-auto'>
-            <div className='overflow-x-auto'>
+            {bookings.length > 0 ? <div className='overflow-x-auto'>
                 <table className='mt-5 w-full'>
                     <tr>
                         <th>Usuario</th>
@@ -93,7 +93,8 @@ function BookingAdmin() {
                         </tr>
                     ))}
                 </table>
-            </div>
+            </div> : 
+            <div><h2>No hay reservaciones</h2></div>}
         </section>
     )
 }

@@ -29,7 +29,7 @@ function App() {
         const res = await checkLogin()
         setUserInfo(res.data.user)
       } catch (error) {
-        console.log('')
+        console.clear()
       }
     }
 
@@ -48,7 +48,7 @@ function App() {
             <Route path="/contacto" element={<Contact />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/registrar" element={<Register />}></Route>
-            <Route path="/perfil" element={<Profile />}></Route>
+            {userInfo.username && <Route path="/perfil" element={<Profile />}></Route>}
             <Route path="/reservar" element={<Booking />}></Route>
             <Route path="/hazte-socio" element={<Partner />}></Route>
             <Route path="/recuperar-cuenta" element={<RecoverAccount />}></Route>

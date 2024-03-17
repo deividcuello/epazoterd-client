@@ -55,7 +55,7 @@ function Users() {
           formData.append("isDelete", true);
           formData.append("adminAccount", true);
           formData.append("status", 'INTERNAL');
-          let newUser = fetch('https://deividcuello.pythonanywhere.com/api/auth/register', {
+          let newUser = fetch('https://epazote.pythonanywhere.com/api/auth/register', {
             credentials: "include",
             headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             method: "POST",
@@ -77,7 +77,7 @@ function Users() {
             }
           }
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${action.id}/`,
+            `https://epazote.pythonanywhere.com/api/auth/users/${action.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -97,7 +97,7 @@ function Users() {
             );
         }
       } catch (error) {
-        console.log(error)
+        console.clear()
       }
     } else {
 
@@ -155,7 +155,7 @@ function Users() {
           <button onClick={() => setIsUserModal(true)} className='bg-blue-500 px-2 py-1 font-semibold text-blackBodyBg rounded-xl mt-1'>Crear interno</button>
         </div>
         <h2 className='mt-5'>Usuarios</h2>
-        <div>
+        <div className='overflow-x-auto w-full'>
           <table className='mt-5'>
             <tr>
               <th>ID</th>
@@ -199,23 +199,23 @@ function Users() {
         <button onClick={() => setIsUserModalFunc()} className='container mx-auto mt-5'>
           <FaChevronCircleLeft size={'2rem'} />
         </button>
-        <form onSubmit={(e) => submitUser(e)} className='flex flex-col gap-2 max-w-[30rem] p-5 rounded-2xl'>
+        <form onSubmit={(e) => submitUser(e)} className='flex flex-col gap-2 w-full md:max-w-[30rem] p-5 rounded-2xl'>
           <h2>Crear usuario <span className='text-xs bg-secondaryColor px-2 py-[0.1rem] text-customBlack rounded-xl'>Interno</span></h2>
           <div>
-            <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} name="" id="" placeholder='Usuario' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+            <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} name="" placeholder='Usuario' className='w-full p-2 rounded-xl bg-blackBodyBg' />
           </div>
           <div>
-            <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} name="" id="" placeholder='Correo' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+            <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} name="" placeholder='Correo' className='w-full p-2 rounded-xl bg-blackBodyBg' />
           </div>
           <div>
-            <input type="text" name="" id="" placeholder='Codigo' maxlength="4" onChange={(e) => setCode(e.target.value)} value={code} className='w-full p-2 rounded-xl bg-blackBodyBg' />
+            <input type="text" name="" placeholder='Codigo' maxlength="4" onChange={(e) => setCode(e.target.value)} value={code} className='w-full p-2 rounded-xl bg-blackBodyBg' />
             <span onClick={sendCode} className='text-sm text-blue-500 break-words cursor-pointer'>Click para enviar código a: {email}</span>
           </div>
           <div>
-            <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} name="" id="" placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+            <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} name="" placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
           </div>
           <div>
-            <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} name="" id="" placeholder='Confirmar ontraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+            <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} name="" placeholder='Confirmar ontraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
           </div>
           <input type="submit" value='Crear' className='p-1 cursor-pointer bg-mainColor rounded-2xl font-semibold text-customBlack' />
           <span className='text-secondaryColor text-xs mt-3'>Nota: Los usuarios creados serán usuarios internos, por lo que tendrán acceso de administrador, para crear un usuario no interno, debe de realizarlo desde la página de registro fuera de /admin</span>

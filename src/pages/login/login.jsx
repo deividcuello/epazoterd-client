@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { getToken } from '../../api';
+import { checkLogin, getToken } from '../../api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +18,7 @@ function Login() {
                 window.location.href = '/'
             }
           } catch (error) {
-            console.log('')
+            console.log(error)
           }
         }
     
@@ -29,15 +29,18 @@ function Login() {
         let formData = new FormData();
         formData.append("email", email);
         formData.append("password", password);
-        const res = await getToken(formData)
-        if(res.data.access){
-            localStorage.setItem("accessToken", res.data.access);
-            localStorage.setItem("refreshToken", res.data.refresh);
-            window.location.href = '/'
-        } else {
-            toast.error("Hubo un error", { position: "top-center" })
+        try{
+            const res = await getToken(formData)
+            if(res.data.access){
+                localStorage.setItem("accessToken", res.data.access);
+                localStorage.setItem("refreshToken", res.data.refresh);
+                window.location.href = '/'
+            }
+        } catch (error){
+            toast.error(`Datos incorrectos`, {
+                     position: "top-center"
+                   })
         }
-
     }
 
     return (
@@ -59,8 +62,7 @@ function Login() {
                         <input type='submit' value='Iniciar sesión' className='bg-yellow w-full text-customBlack p-2 font-bold rounded-xl cursor-pointer' />
                         <Link to='/recuperar-cuenta' className='text-red-500 text-sm mt-3 text-end block'>¿Olvidaste tu contraseña?</Link>
                     </form>
-                    <Link to='/registrar' className='text-red-500 text-sm mt-3 text-end block'>Registrarse aquí</Link>
-                    
+                    <Link to='/registrar' className='text-red-500 text-sm mt-3 text-end block'>Registarse aquí</Link>
                 </div>
             </div>
             <ToastContainer />

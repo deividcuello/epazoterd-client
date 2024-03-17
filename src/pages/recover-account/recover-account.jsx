@@ -60,7 +60,7 @@ function RecoverAccount() {
       formData.append("password", password);
       formData.append("recover_password", true);
       if(password.length >= 8 && password == confirmPassword && codeInput == activationCode){
-          let editUser = fetch(`https://deividcuello.pythonanywhere.com/api/auth/users/${id}/`, {
+          let editUser = fetch(`https://epazote.pythonanywhere.com/api/auth/users/${id}/`, {
             credentials: "include",
             headers: { "X-CSRFToken": Cookies.get("csrftoken") },
             method: "PUT",
@@ -123,7 +123,7 @@ function RecoverAccount() {
               className="h-full w-[30rem]"
             >
               <div className="text- center mx-auto">
-                <img src="/logo.png" alt="" className="mx-auto w-96"/>
+                <img src="./logo.png" alt="" className="mx-auto w-96"/>
               </div>
               <div className="flex flex-col mt-4">
                 <label htmlFor="email">Email</label>

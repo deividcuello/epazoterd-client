@@ -16,7 +16,7 @@ function PartnerAdmin() {
                 const data = res1.data.partner
                 setPartners(data)
             } catch (error) {
-                console.log('')
+                console.clear()
             }
         }
 
@@ -29,9 +29,9 @@ function PartnerAdmin() {
     
     return (
         <section className='container mx-auto'>
-            <div className='flex flex-col sm:flex-row flex-wrap sm:justify-center gap-3 mt-5'>
+            {partners.length > 0 ? <div className='flex flex-col sm:flex-row flex-wrap sm:justify-center gap-3 mt-5'>
               {partners.map((item, index) => (
-                  <div className='bg-blackBodyBg p-2 rounded-xl sm:w-[15rem] pb-10 md:w-[20rem] overflow-y-auto relative overflow-x-hidden'>
+                  <div key={index} className='bg-blackBodyBg p-2 rounded-xl sm:w-[15rem] pb-10 md:w-[20rem] overflow-y-auto relative overflow-x-hidden'>
                     <div className='max-h-[20rem]'>
                       <h1 className='capitalize'>{item.name}</h1>
                       <p className='text-sm'>{item.user.email}</p>
@@ -45,7 +45,8 @@ function PartnerAdmin() {
                     </div>
                   </div>
               ))}
-            </div>
+            </div> : 
+            <div><h2>No hay socios</h2></div>}
         </section>
     )
 }

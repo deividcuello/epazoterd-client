@@ -11,19 +11,6 @@ function Header() {
   const [isMd, setIsMd] = useState(false)
   const [userInfo, setUserInfo] = useState('')
 
-  useEffect(() => {
-    async function userData() {
-      try {
-        const res = await checkLogin()
-        setUserInfo(res.data.user)
-      } catch (error) {
-        console.log('')
-      }
-    }
-
-    userData()
-  }, [])
-
   const handleResize = () => {
     if (window.innerWidth < 768) {
       setIsMd(true)
@@ -31,6 +18,21 @@ function Header() {
       setIsMd(false)
     }
   }
+
+  useEffect(() => {
+    async function userData() {
+      try {
+        const res = await checkLogin()
+        setUserInfo(res.data.user)
+      } catch (error) {
+        console.clear()
+      }
+    }
+
+    handleResize()
+    userData()
+  }, [])
+
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
@@ -153,7 +155,7 @@ function Header() {
             </li>
             <Link to='/reservar'>
               <button className="bg-secondaryColor text-blackBodyBg font-semibold py-1 px-2 rounded-xl mt-3 md:mt-0 ml-3 w-fit">
-              Reservación
+              Reservación de local
               </button>
             </Link>
           </ul>

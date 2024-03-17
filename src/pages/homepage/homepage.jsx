@@ -6,20 +6,7 @@ import { LuChefHat } from "react-icons/lu";
 import { IoMdHappy } from "react-icons/io";
 
 function Homepage() {
-    const [isSm, setIsSm] = useState(false)
-
-    const handleResize = () => {
-        if (window.innerWidth < 640) {
-            setIsSm(true)
-        } else {
-            setIsSm(false)
-        }
-      }
-      
-      useEffect(() => {
-        window.addEventListener("resize", handleResize)
-      })
-
+   
     return (
         <section>
             <div className="bg-[url('/homepage/local.png')] min-h-[calc(100vh-141.97px)] bg-no-repeat w-full bg-cover bg-top relative">
@@ -30,7 +17,7 @@ function Homepage() {
                         </div>
                         <div className='pt-10'>
                             <Link to='/reservar'>
-                            <button className='bg-secondaryColor flex items-center gap-3 py-2 px-5 text-2xl sm:text-3xl md:text-5xl -rotate-6 rounded-2xl animate-waving-hand'>Reserva ya <FaHandPointLeft /></button>
+                            <button className='bg-secondaryColor flex items-center gap-3 py-2 px-5 text-2xl sm:text-3xl md:text-5xl -rotate-6 rounded-2xl animate-waving-hand'>Reserva local <FaHandPointLeft /></button>
                             </Link>
                         </div>
                     </div>
@@ -41,20 +28,20 @@ function Homepage() {
             </div>
             <div className='container mx-auto mt-5 [&>*]:mt-24 [&>*]:sm:mt-10'>
                 <div className='grid grid-cols-1 sm:grid-cols-[40%_60%] place-items-center gap-6'>
-                    <img src="/homepage/food1.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
+                    <img src="/homepage/food1.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl bg-no-repeat' />
                     <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">En Santo Domingo, somos simplemente los mejores. En nuestro restaurante, satisfacemos los caprichos más exigentes con sabores incomparables. Únete a nosotros y experimenta el egoísmo de lo excepcional</p>
                 </div>
-                <div className='grid grid-cols-1 sm:grid-cols-[40%_60%] place-items-center gap-6' dir={!isSm ? 'rtl' : 'lrt'}>
-                    <img src="/homepage/food2.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
-                    <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">En nuestro restaurante, el arroz es una experiencia que te cautivará desde el primer bocado. Cada grano cocido a la perfección es una invitación a un mundo de sabores exquisitos. Ven y descubre por qué nuestro arroz es simplemente incomparable</p>
+                <div className='grid grid-cols-1 sm:grid-cols-[40%_60%] place-items-center gap-6' dir='rtl'>
+                    <img src="/homepage/food2.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl  bg-no-repeat' />
+                    <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">Nos esforzamos por alcanzar la excelencia en cada plato que servimos. Nuestro objetivo es satisfacer los paladares más exigentes con sabores que son verdaderamente incomparables</p>
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-[40%_60%] place-items-center gap-6'>
-                    <img src="/homepage/food3.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl' />
-                    <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">En nuestro restaurante, ningún menú está completo sin un postre exquisito. Es el toque final que eleva tu experiencia gastronómica a la perfección</p>
+                    <img src="/homepage/food3.png" alt="" className='w-full max-h-[10rem] object-cover rounded-2xl  bg-no-repeat' />
+                    <p className="relative before:absolute before:h-[5rem] before:-z-[1] before:w-full before:bg-secondaryColor before:bg-opacity-40 before:top-6">Nos dedicamos a superar tus expectativas en cada plato que ofrecemos. Buscamos satisfacer los paladares más exigentes con una explosión de sabores que simplemente no tienen comparación. Únete a nosotros y descubre la verdadera excelencia en cada bocado</p>
                 </div>
             </div>
             <div className='mt-16 sm:mt-10'>
-                <div className="bg-[url('/homepage/food4.png')] min-[30rem] bg-no-repeat w-full bg-cover bg-center relative">
+                <div className="bg-[url('/homepage/food4.png')] min-h-[30rem] bg-no-repeat w-full bg-cover relative">
                     <div className='w-full min-h-[30rem] bg-black bg-opacity-70 py-4'>
                         <div className='w-full min-h-[30rem] flex justify-center items-start gap-2 flex-col'>
                             <div className='container mx-auto'>

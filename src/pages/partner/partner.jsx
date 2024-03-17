@@ -32,7 +32,7 @@ function Partner() {
 
                 }
             } catch (error) {
-                console.log('')
+                console.clear()
             }
         }
 
@@ -82,6 +82,12 @@ function Partner() {
               })
         }
 
+        if(additionalInfo.trim().length == 0){
+          return toast.error(`Coloque las informaciones adicionales`, {
+            position: "top-center"
+          })
+        }
+
         const cvInput = document.querySelector("#cvInput");
         let cv = cvInput.files[0];
         let formData = new FormData();
@@ -90,7 +96,7 @@ function Partner() {
         formData.append("phone", phone);
         formData.append("message", additionalInfo.trim());
         formData.append("user_pk", userInfo.id);
-        fetch('https://deividcuello.pythonanywhere.com/api/partner/', {
+        fetch('https://epazote.pythonanywhere.com/api/partner/', {
           credentials: "include",
           headers: { "X-CSRFToken": Cookies.get("csrftoken") },
           method: "POST",
@@ -115,7 +121,7 @@ function Partner() {
         formData.append("update_name", true);
         if (name) {
           fetch(
-            `https://deividcuello.pythonanywhere.com/api/partner/${isUserPartner[0].id}/`,
+            `https://epazote.pythonanywhere.com/api/partner/${isUserPartner[0].id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -148,7 +154,7 @@ function Partner() {
         formData.append("update_phone", true);
         if (name) {
           fetch(
-            `https://deividcuello.pythonanywhere.com/api/partner/${isUserPartner[0].id}/`,
+            `https://epazote.pythonanywhere.com/api/partner/${isUserPartner[0].id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -197,7 +203,7 @@ function Partner() {
                                 </div>
                                 <div>
                                     <label htmlFor="">Describe porque quieres ser nuestro socio</label>
-                                    <textarea name="" id="" onChange={(e) => setAdditionalInfoFunc(e)} value={additionalInfo} placeholder='Describe aqui porque deseas ser nuestro socio detalladamente para que nosotros podamos tomarlo en cuenta' className='bg-blackBodyBg p-1 rounded-xl resize-none w-full h-[10rem]'></textarea>
+                                    <textarea name="" onChange={(e) => setAdditionalInfoFunc(e)} value={additionalInfo} placeholder='Describe aqui porque deseas ser nuestro socio detalladamente para que nosotros podamos tomarlo en cuenta' className='bg-blackBodyBg p-1 rounded-xl resize-none w-full h-[10rem]'></textarea>
                                     <span className='text-sm text-secondaryColor font-semibold'>{additionalInfo.length}/255</span>
                                 </div>
                                 <input type="submit" value='Reservar' className='bg-mainColor text-blackBodyBg p-2 rounded-xl font-semibold cursor-pointer' />
@@ -232,7 +238,7 @@ function Partner() {
                             </form>
                             <div className='bg-red-950 p-6 rounded-xl flex items-start justify-start flex-col max-w-[33.9rem] mt-5'>
                                 <h4>Curriculum</h4>
-                                <a href={`https://www.pythonanywhere.com/user/deividcuello/files/home/deividcuello${cv}`} target='_blank' className='text-blue-400 underline break-words'>Ver curriculum</a>
+                                <a href={`https://www.pythonanywhere.com/user/epazote/files/home/epazote${cv}`} target='_blank' className='text-blue-400 underline break-words'>Ver curriculum</a>
                             </div>
                             <div className='bg-red-950 p-6 rounded-xl flex items-start justify-start flex-col max-w-[33.9rem] mt-5'>
                                 <h4>Mensaje</h4>

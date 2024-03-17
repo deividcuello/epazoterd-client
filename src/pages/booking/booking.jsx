@@ -45,7 +45,7 @@ function Booking() {
                 const filteredData = data.filter((item) => item.user.id == res.data.user.id)
                 setBookings(filteredData)
             } catch (error) {
-                console.log('')
+                console.clear()
             }
         }
 
@@ -70,8 +70,12 @@ function Booking() {
 
     async function submitBooking(e) {
         e.preventDefault()
+        if(!additionalInfo){
+            return toast.error("Describa para que desea el local", { position: "top-center" })
+        }
+
         if (time == '' || time2 == '') {
-            return toast.error("Selecciona un tiempo", { position: "top-center" })
+            return toast.error("Selecciona horas correctas", { position: "top-center" })
         }
         let isSubmit = false
 
@@ -129,7 +133,7 @@ function Booking() {
             formData.append('booking_code', getCode);
             formData.append('user_pk', userInfo.id)
 
-            fetch("https://deividcuello.pythonanywhere.com/api/booking/", {
+            fetch("https://epazote.pythonanywhere.com/api/booking/", {
                 credentials: "include",
                 headers: { "X-CSRFToken": Cookies.get("csrftoken") },
                 method: "POST",
@@ -184,11 +188,10 @@ function Booking() {
                                 </div>
                                 <div>
                                     <label htmlFor="">Hora de llegada</label>
-                                    {/* <input type='time' onChange={(e) => setTime(e.target.value)} value={time} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required /> */}
                                     <select onChange={(e) => setTime(e.target.value)} value={time} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
                                         <option value='' selected></option>
-                                        {arrayRange(todayDate == date ? new Date().getHours() : 0, 23, 1).map(element => (
-                                            <option value={`${element}`}>{todayDate == date ? (element - 12) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
+                                        {arrayRange(todayDate == date ? new Date().getHours() + 1 : 0, 23, 1).map((element, index) => (
+                                            <option key={index} value={`${element}`}>{todayDate == date ? (element) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -196,8 +199,8 @@ function Booking() {
                                     <label htmlFor="">Hora de salida</label>
                                     <select onChange={(e) => setTime2(e.target.value)} value={time2} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
                                         <option value='' selected></option>
-                                        {arrayRange(Number(time) + 1, 23, 1).map(element => (
-                                            <option value={`${element}`}>{todayDate == date ? (element - 12) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
+                                        {arrayRange(Number(time) + 1, 23, 1).map((element, index) => (
+                                            <option key={index} value={`${element}`}>{todayDate == date ? (element) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -206,8 +209,8 @@ function Booking() {
                                     <input type='number' min="1" max="50" onChange={(e) => setPeopleNo(e.target.value)} value={peopleNo} className='bg-blackBodyBg p-1 rounded-xl w-full mt-2' required />
                                 </div>
                                 <div>
-                                    <label htmlFor="">Información adicional (opcional)</label>
-                                    <textarea name="" id="" onChange={(e) => setAdditionalInfoFunc(e)} value={additionalInfo} className='bg-blackBodyBg p-1 rounded-xl resize-none w-full h-[10rem]'></textarea>
+                                    <label htmlFor="">Información adicional</label>
+                                    <textarea name="" onChange={(e) => setAdditionalInfoFunc(e)} value={additionalInfo} className='bg-blackBodyBg p-1 rounded-xl resize-none w-full h-[10rem]'></textarea>
                                     <span className='text-sm text-secondaryColor font-semibold'>{additionalInfo.length}/255</span>
                                 </div>
                                 <input type="submit" value='Reservar' className='bg-mainColor text-blackBodyBg p-2 rounded-xl font-semibold cursor-pointer' />

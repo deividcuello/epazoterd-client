@@ -30,7 +30,7 @@ function Register() {
         let formData = new FormData();
         formData.append("email", emai.toLowerCase().trim());
         formData.append("password", password);
-        fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
+        fetch('https://epazote.pythonanywhere.com/api/auth/login', {
             credentials: "include",
             method: "POST",
             body: formData,
@@ -47,7 +47,7 @@ function Register() {
         setActivationCode(Math.random())
         formData.append("email", email.toLowerCase().trim());
         formData.append("password", password);
-        fetch('https://deividcuello.pythonanywhere.com/api/auth/login', {
+        fetch('https://epazote.pythonanywhere.com/api/auth/login', {
             credentials: "include",
             method: "POST",
             body: formData,
@@ -71,7 +71,7 @@ function Register() {
                 formData.append("adminAccount", false);
                 formData.append("status", 'NONE');
 
-                let newUser = fetch('https://deividcuello.pythonanywhere.com/api/auth/register', {
+                let newUser = fetch('https://epazote.pythonanywhere.com/api/auth/register', {
                     credentials: "include",
                     headers: { "X-CSRFToken": Cookies.get("csrftoken") },
                     method: "POST",
@@ -121,22 +121,22 @@ function Register() {
                 <h2 className='mb-4'>Regístrate</h2>
                 <div className='bg-customBlack  w-[25rem] rounded-2xl px-4'>
                     <form onSubmit={(e) => submitUser(e)} className='flex flex-col gap-2 w-full p-5 rounded-2xl'>
-                        <img src="/logo.png" alt="" className=' w-36 mx-auto' />
+                        <img src="./logo.png" alt="" className=' w-36 mx-auto' />
                         <div>
-                            <input type="text" onChange={(e) => setUsername(e.target.value)} name="" id="" placeholder='Usuario' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+                            <input type="text" onChange={(e) => setUsername(e.target.value)} name="" placeholder='Usuario' className='w-full p-2 rounded-xl bg-blackBodyBg' />
                         </div>
                         <div>
-                            <input type="email" onChange={(e) => setEmail(e.target.value)} name="" id="" placeholder='Correo' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+                            <input type="email" onChange={(e) => setEmail(e.target.value)} name="" placeholder='Correo' className='w-full p-2 rounded-xl bg-blackBodyBg' />
                         </div>
                         <div>
-                            <input type="text" name="" id="" placeholder='Código' maxlength="4" onChange={(e) => setCode(e.target.value)} value={code} className='w-full p-2 rounded-xl bg-blackBodyBg' />
+                            <input type="text" name="" placeholder='Código' maxlength="4" onChange={(e) => setCode(e.target.value)} value={code} className='w-full p-2 rounded-xl bg-blackBodyBg' />
                             <span onClick={sendCode} className='text-sm text-blue-500 break-words cursor-pointer'>Click para enviar código a: {email}</span>
                         </div>
                         <div>
-                            <input type="password" onChange={(e) => setPassword(e.target.value)} name="" id="" placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+                            <input type="password" onChange={(e) => setPassword(e.target.value)} name=""  placeholder='Contraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
                         </div>
                         <div>
-                            <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} name="" id="" placeholder='Confirmar ontraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
+                            <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} name="" placeholder='Confirmar ontraseña' className='w-full p-2 rounded-xl bg-blackBodyBg' />
                         </div>
                         <input type="submit" value='Crear' className='p-1 cursor-pointer bg-mainColor rounded-2xl font-semibold text-customBlack' />
                     </form>

@@ -18,7 +18,7 @@ async function checkAdmin() {
       formData.append("isDelete", false);
       formData.append("adminAccount", true);
       formData.append("status", 'INTERNAL');
-      let newUser = fetch('https://deividcuello.pythonanywhere.com/api/auth/register', {
+      let newUser = fetch('https://epazote.pythonanywhere.com/api/auth/register', {
         credentials: "include",
         headers: { "X-CSRFToken": Cookies.get("csrftoken") },
         method: "POST",
@@ -26,7 +26,7 @@ async function checkAdmin() {
       })
     }
   } catch (error) {
-    console.log('')
+    console.clear()
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { checkLogin, sendEmail } from '../../api'
+import { checkLogin, sendEmail, deleteUser } from '../../api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
@@ -23,7 +23,7 @@ function Profile() {
                 setUsername(res.data.user.username)
                 setEmail(res.data.user.email)
             } catch (error) {
-                console.log(error)
+                console.clear()
             }
         }
         userData()
@@ -37,7 +37,7 @@ function Profile() {
         formData.append("update_username", true);
         if (username) {
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
+            `https://epazote.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -76,7 +76,7 @@ function Profile() {
         formData.append("update_email", true);
         if (email && code == activationCode) {
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
+            `https://epazote.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -110,7 +110,7 @@ function Profile() {
         formData.append("update_password", true);
         if (password.length >= 8 && password == confirmPassword) {
           let editUser = fetch(
-            `https://deividcuello.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
+            `https://epazote.pythonanywhere.com/api/auth/users/${userInfo.id}/`,
             {
               credentials: "include",
               headers: { "X-CSRFToken": Cookies.get("csrftoken") },
@@ -129,7 +129,7 @@ function Profile() {
             )
             .catch((error) =>
               // toast.error("Hubo un error", { position: "top-center" }),
-              console.log(error)
+              console.clear()
             );
         } else if (password.length < 8) {
           toast.error("Longitud mínima de contraseña es 8", {
@@ -154,6 +154,14 @@ function Profile() {
         })
       }
 
+      async function deleteUserFunc(id){
+        if(!userInfo.isDelete){
+          return toast.error("Esta cuenta no puede ser eliminada", { position: "top-center" });
+        }
+
+        deleteUser(id)
+      }
+
     return (
         <section className='container mx-auto'>
             <div className='max-w-[22rem]'>
@@ -163,8 +171,8 @@ function Profile() {
                         <div className='flex flex-col gap-1'>
                             <label className='text-sm'>Usuario</label>
                             <div className='flex gap-2 items-end justify-start'>
-                                <input type="text" name="" id="" onChange={(e) => setUsername(e.target.value)} value={username} className='bg-blackBodyBg p-2 rounded-xl' />
-                                <input type="submit" name="" id="" value='Guardar' className='bg-mainColor px-2 py-1 rounded-2xl text-blackBodyBg font-semibold cursor-pointer' />
+                                <input type="text" name="" onChange={(e) => setUsername(e.target.value)} value={username} className='bg-blackBodyBg p-2 rounded-xl' />
+                                <input type="submit" name="" value='Guardar' className='bg-mainColor px-2 py-1 rounded-2xl text-blackBodyBg font-semibold cursor-pointer' />
                             </div>
                         </div>
                     </form>
@@ -175,14 +183,14 @@ function Profile() {
                             <div className='flex gap-2 items-end justify-start'>
                                 <div className='gap-2'>
                                     <div className='flex flex-col gap-2'>
-                                        <input type="email" name="" id="" onChange={(e) => setEmail(e.target.value)} value={email} className='bg-blackBodyBg p-2 rounded-xl' />
+                                        <input type="email" name="" onChange={(e) => setEmail(e.target.value)} value={email} className='bg-blackBodyBg p-2 rounded-xl' />
                                     </div>
                                     <label className='text-sm mt-4 inline-block'>Código</label>
                                     <div className='flex flex-col gap-2'>
-                                        <input type="text" name="" id="" maxlength="4" onChange={(e)=>setCode(e.target.value)} className='bg-blackBodyBg p-2 rounded-xl' />
+                                        <input type="text" name="" maxlength="4" onChange={(e)=>setCode(e.target.value)} className='bg-blackBodyBg p-2 rounded-xl' />
                                     </div>
                                 </div>
-                                <input type="submit" name="" id="" value='Guardar' className='bg-mainColor px-2 py-1 rounded-2xl text-blackBodyBg font-semibold cursor-pointer' />
+                                <input type="submit" name="" value='Guardar' className='bg-mainColor px-2 py-1 rounded-2xl text-blackBodyBg font-semibold cursor-pointer' />
                             </div>
                                 <span onClick={sendCode} className='text-sm text-blue-500 break-words cursor-pointer'>Click para enviar código a: {email}</span>
                           </div>
@@ -194,19 +202,20 @@ function Profile() {
                             <div className='flex gap-2 items-end justify-start'>
                                 <div className='gap-2'>
                                     <div className='flex flex-col gap-2'>
-                                        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} name="" id=""className='bg-blackBodyBg p-2 rounded-xl' />
+                                        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} name="" className='bg-blackBodyBg p-2 rounded-xl' />
                                     </div>
                                     <label className='text-sm mt-4 inline-block'>Confirmar contraseña</label>
                                     <div className='flex flex-col gap-2'>
-                                        <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} name="" id=""className='bg-blackBodyBg p-2 rounded-xl' />
+                                        <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} name="" className='bg-blackBodyBg p-2 rounded-xl' />
                                     </div>
                                 </div>
 
-                                <input type="submit" name="" id="" value='Guardar' className='bg-mainColor px-2 py-1 rounded-2xl text-blackBodyBg font-semibold cursor-pointer' />
+                                <input type="submit" name="" value='Guardar' className='bg-mainColor px-2 py-1 rounded-2xl text-blackBodyBg font-semibold cursor-pointer' />
                             </div>
                         </div>
                     </form>
                 </div>
+                <button onClick={() => deleteUserFunc(userInfo.id)} className='bg-secondaryColor text-blackBodyBg font-semibold mt-5 py-1 px-2 rounded-xl'>Eliminar cuenta</button>
             </div>
             <ToastContainer />
         </section>
