@@ -19,7 +19,7 @@ function Asidebar() {
     }
       {isMenu && <div className='bg-customBlack h-[calc(100vh-2.5rem)] mt-5 ml-5 p-2 rounded-xl'>
         <div>
-          <img src="./logo.png" alt="" className=' w-28 mx-auto'/>
+          <img src="/logo.png" alt="" className=' w-28 mx-auto'/>
         </div>
         <nav className='mt-5 container mx-auto'>
           <ul>

@@ -18,7 +18,7 @@ function Login() {
                 window.location.href = '/'
             }
           } catch (error) {
-            console.log(error)
+            console.clear()
           }
         }
     
@@ -26,11 +26,11 @@ function Login() {
       }, [])
     async function submitLogin(e) {
         e.preventDefault()
-        let formData = new FormData();
-        formData.append("email", email);
-        formData.append("password", password);
+        // let formData = new FormData();
+        // formData.append("email", email);
+        // formData.append("password", password);
         try{
-            const res = await getToken(formData)
+            const res = await getToken({email: email.toLowerCase(), password})
             if(res.data.access){
                 localStorage.setItem("accessToken", res.data.access);
                 localStorage.setItem("refreshToken", res.data.refresh);
@@ -40,6 +40,7 @@ function Login() {
             toast.error(`Datos incorrectos`, {
                      position: "top-center"
                    })
+            console.log(error)
         }
     }
 

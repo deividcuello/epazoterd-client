@@ -19,6 +19,7 @@ export const getToken = async (user) => {
   try {
     return axios.post('https://epazote.pythonanywhere.com/api/auth/token/',user);
   } catch (error) {
+    console.clear()
   }
 };
 

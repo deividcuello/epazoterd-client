@@ -191,7 +191,7 @@ function Booking() {
                                     <select onChange={(e) => setTime(e.target.value)} value={time} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
                                         <option value='' selected></option>
                                         {arrayRange(todayDate == date ? new Date().getHours() + 1 : 0, 23, 1).map((element, index) => (
-                                            <option key={index} value={`${element}`}>{todayDate == date ? (element) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
+                                            <option key={index} value={`${element}`}>{todayDate == date ? ((element <= 12 ? element : element - 12)) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -200,7 +200,7 @@ function Booking() {
                                     <select onChange={(e) => setTime2(e.target.value)} value={time2} step="3600" className='bg-blackBodyBg p-1 rounded-xl w-full mt-2 focus:outline-none' required>
                                         <option value='' selected></option>
                                         {arrayRange(Number(time) + 1, 23, 1).map((element, index) => (
-                                            <option key={index} value={`${element}`}>{todayDate == date ? (element) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
+                                            <option key={index} value={`${element}`}>{todayDate == date ? ((element <= 12 ? element : element - 12)) : (element <= 12 ? element : element - 12)}:00 {element <= 12 ? 'A.M' : 'P.M'}</option>
                                         ))}
                                     </select>
                                 </div>
